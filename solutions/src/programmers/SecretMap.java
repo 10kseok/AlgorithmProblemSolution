@@ -8,11 +8,7 @@ public class SecretMap {
     public static String[] solution(int n, int[] arr1, int[] arr2) {
         String[] answer = {};
         // logic
-        for (int i = 0; i < n; i++) {
-            int result = arr1[i] | arr2[i];
-            // result -> binary
-            // in binary, 1 -> #, 0 -> ' '
-        }
+
 
         return answer;
     }
