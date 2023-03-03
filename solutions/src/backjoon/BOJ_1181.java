@@ -2,25 +2,29 @@ package backjoon;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.Collections;
 
-public class BOJ_10814 {
+public class BOJ_1181 {
     public static void solution() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int n = Integer.parseInt(reader.readLine());
-        ArrayList<String[]> peopleInfo = new ArrayList<>();
+        ArrayList<String> words = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
-            String[] ageAndName = reader.readLine().split(" ");
-            peopleInfo.add(ageAndName);
+            String word = reader.readLine();
+            if (words.contains(word)) continue;
+            words.add(word);
         }
 
-        peopleInfo.sort(Comparator.comparingInt((String[] person) -> Integer.parseInt(person[0])));
+        Collections.sort(words, (w1, w2) -> {
+            if (w1.length() == w2.length()) return w1.compareTo(w2);
+            return w1.length() - w2.length();
+        });
 
-        for (String[] person: peopleInfo) {
-            writer.write(person[0] + " " + person[1] + "\n");
+        for (String word: words) {
+            writer.write(word + "\n");
         }
 
         reader.close();
@@ -30,6 +34,6 @@ public class BOJ_10814 {
 
 //class Main {
 //    public static void main(String[] args) throws IOException {
-//        BOJ_10814.solution();
+//        BOJ_1181.solution();
 //    }
 //}
