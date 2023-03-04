@@ -5,17 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4943fcbe-8c30-4eb5-afe0-ea3153a2d7cf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/aws.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/solutions/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/solutions.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BOJ_10828_Stack.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../programmers/SecretMap.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../solutions/src/backjoon/BOJ_1181.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../solutions/src/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../solutions/src/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../solutions/src/backjoon/BOJ_10814.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../solutions/src/backjoon/BOJ_10814.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../solutions/src/backjoon/BOJ_10828_Stack.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../solutions/src/backjoon/BOJ_10828_Stack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../solutions/src/out/production/solutions/BOJ_10814.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../solutions/src/out/production/solutions/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../solutions/src/out/production/solutions/backjoon/Boj10828.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../solutions/src/out/production/solutions/backjoon/Boj10828.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../solutions/src/out/production/solutions/solutions.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../solutions/src/out/production/solutions/solutions.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../solutions/src/solutions.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../solutions/src/solutions.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +101,9 @@
       <updated>1677488561134</updated>
       <workItem from="1677488564772" duration="19108000" />
       <workItem from="1677539306917" duration="829000" />
+      <workItem from="1677640211655" duration="24000" />
+      <workItem from="1677806652962" duration="12000" />
+      <workItem from="1677806668882" duration="62000" />
     </task>
     <servers />
   </component>

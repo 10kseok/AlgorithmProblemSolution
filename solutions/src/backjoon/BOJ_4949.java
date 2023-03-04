@@ -24,7 +24,7 @@ public class BOJ_4949 {
         String line;
         while (!((line = reader.readLine()).equals("."))) {
             ArrayDeque<Character> stack = new ArrayDeque<>();
-            String result = "yes\n";
+            String result = "yes\n"; // 괄호가 아예 안 나오는 경우도 균형으로 인정됨으로 기본값으로 yes
             for (char c : line.toCharArray()) {
                 if (result.equals("no\n")) break;
                 switch (c) {
@@ -39,7 +39,7 @@ public class BOJ_4949 {
                         break;
                 }
             }
-            // 괄호가 짝에 맞게 있었다면 스택이 비워져있어야함 + 괄호가 아예 안 나오는 경우도 균형으로 인정
+            // 괄호가 짝에 맞게 있었다면 스택이 비워져있어야함 ( 여는 괄호가 닫는 괄호보다 많을 경우를 catch )
             if (!stack.isEmpty()) result = "no\n";
             writer.write(result);
         }
@@ -49,9 +49,9 @@ public class BOJ_4949 {
     }
 }
 
-class Main {
-    public static void main(String[] args) throws IOException {
-        BOJ_4949.solution();
-    }
-}
-
+//class Main {
+//    public static void main(String[] args) throws IOException {
+//        BOJ_4949.solution();
+//    }
+//}
+//
