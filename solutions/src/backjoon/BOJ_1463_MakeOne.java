@@ -33,10 +33,10 @@ public class BOJ_1463_MakeOne {
         System.out.println(numberTable[inputNum]);
     }
 }
-
-class Main {
-    public static void main(String[] args) {
-        BOJ_1463_MakeOne.solution();
-    }
-}
-
+//
+//class Main {
+//    public static void main(String[] args) {
+//        BOJ_1463_MakeOne.solution();
+//    }
+//}
+//
