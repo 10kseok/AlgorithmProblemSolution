@@ -1,0 +1,74 @@
+package backjoon.stack;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+
+public class BOJ_23253 {
+    public static void solution() throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
+
+        tokenizer.nextToken(); // 책의 총갯수는 사용하지 않으므로 따로 할당x
+        int numberOfDummy = Integer.parseInt(tokenizer.nextToken());
+
+        for (int i = 0; i < numberOfDummy; i++) {
+            int lastBookIdx = Integer.MAX_VALUE;
+            int numberOfBooks = Integer.parseInt(reader.readLine());
+            tokenizer = new StringTokenizer(reader.readLine());
+            do {
+                int bookIdx = Integer.parseInt(tokenizer.nextToken());
+                if (lastBookIdx < bookIdx) {
+                    System.out.println("No");
+                    return;
+                }
+                lastBookIdx = bookIdx;
+            } while (--numberOfBooks > 0);
+        }
+        System.out.println("Yes");
+
+
+        // 잘못된 예
+//        Scanner scanner = new Scanner(System.in);
+//        int totalNumberOfBooks = scanner.nextInt();
+//        int numberOfDummy = scanner.nextInt();
+//
+//        ArrayList<Deque> dummyList = new ArrayList<>(numberOfDummy);
+//        // input -> dummylist
+//        for (int i = 0; i < numberOfDummy; i++) {
+//            int numberOfBooks = scanner.nextInt();
+//            Deque<Integer> dummy = new ArrayDeque();
+//            for (int j = 0; j < numberOfBooks; j++) {
+//                dummy.addLast(scanner.nextInt());
+//            }
+//            dummyList.add(dummy);
+//        }
+//
+//        // check sequential
+//        for (int i = 1; i <= totalNumberOfBooks; i++) {
+//            for (Deque<Integer> dummy : dummyList) {
+////                if (dummy.isEmpty()) continue;
+//                Deque<Integer> testDummy = dummy;
+//                if (dummy.peekLast() != null && dummy.peekLast() == i) dummy.removeLast();
+//            }
+//        }
+//
+//        System.out.println(
+//                dummyList
+//                        .stream()
+//                        .map(Deque::size)
+//                        .mapToInt(Integer::intValue)
+//                        .sum() == 0 ? "Yes" : "No"
+//        );
+    }
+
+}
+
+
+class Main {
+    public static void main(String[] args) throws IOException {
+        BOJ_23253.solution();
+    }
+
+}

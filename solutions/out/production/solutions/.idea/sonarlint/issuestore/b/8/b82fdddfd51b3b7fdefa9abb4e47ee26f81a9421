@@ -1,0 +1,10 @@
+
+{
+java:S1488	"^Immediately return this expression instead of assigning it to the temporary variable "answer".(ßºú¤8Úî¬é0
+W
+java:S1172":Remove these unused method parameters "n", "arr1", "arr2".(’Êš©8©‚î¬é0
+U	java:S106)"9Replace this use of System.out or System.err by a logger.(Ú¾×ä8´‚î¬é0
+]	java:S125"<This block of commented-out lines of code should be removed.(¡º×ğúÿÿÿÿ8µ‚î¬é0
+]	java:S125 "<This block of commented-out lines of code should be removed.(ü”Ëúÿÿÿÿ8µ‚î¬é0
+X	java:S125#"<This block of commented-out lines of code should be removed.(í—°«8¶‚î¬é0
+]	java:S125("<This block of commented-out lines of code should be removed.(›ÊÖŞşÿÿÿÿ8¶‚î¬é0

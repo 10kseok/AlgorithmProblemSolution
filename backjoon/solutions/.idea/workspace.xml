@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4943fcbe-8c30-4eb5-afe0-ea3153a2d7cf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../solutions/src/backjoon/BOJ_1181.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/aws.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../solutions/src/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../solutions/src/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../solutions/src/backjoon/BOJ_10814.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../solutions/src/backjoon/BOJ_10814.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../solutions/src/backjoon/BOJ_10828_Stack.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../solutions/src/backjoon/BOJ_10828_Stack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../solutions/src/out/production/solutions/BOJ_10814.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../solutions/src/out/production/solutions/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../solutions/src/out/production/solutions/backjoon/Boj10828.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../solutions/src/out/production/solutions/backjoon/Boj10828.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../solutions/src/out/production/solutions/solutions.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../solutions/src/out/production/solutions/solutions.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../solutions/src/solutions.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../solutions/src/solutions.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../solutions/src/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../solutions/src/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,19 +44,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/koesnam/Desktop/myApps/AlgorithmProblemSolution/backjoon/solutions",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "actions.on.save",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -104,6 +101,7 @@
       <workItem from="1677640211655" duration="24000" />
       <workItem from="1677806652962" duration="12000" />
       <workItem from="1677806668882" duration="62000" />
+      <workItem from="1678104820175" duration="48000" />
     </task>
     <servers />
   </component>
