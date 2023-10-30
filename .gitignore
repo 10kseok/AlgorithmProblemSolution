@@ -84,14 +84,16 @@ fabric.properties
 # Ignore everything but code style settings and run configurations
 # that are supposed to be shared within teams.
 
-.idea/*
+**/.idea/*
 
 !.idea/codeStyles
 !.idea/runConfigurations
 
 ### Java ###
+**/out/*
+
 # Compiled class file
-*.class
+**/*.class
 
 # Log file
 *.log

@@ -5,8 +5,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
+/**
+ * 각 책더미에서 책번호가 아래에서 위로 갈수록 작아지는 구조라면 순차적임을 보장한다.
+ */
 public class BOJ_23253 {
     public static void solution() throws IOException {
+        // scanner.nextInt()을 StringTokenizer로 변경 + Stack에서 int하나로 변경 --> 실행시간 1/4로 단축
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
 
@@ -62,7 +66,6 @@ public class BOJ_23253 {
 //                        .sum() == 0 ? "Yes" : "No"
 //        );
     }
-
 }
 
 
