@@ -71,7 +71,11 @@ public class BOJ_23253 {
 
 class Main {
     public static void main(String[] args) throws IOException {
-        BOJ_23253.solution();
+        // BOJ_23253.solution();
+        String temp = "";
+
+        temp += "123";
+        System.out.println(temp);
     }
 
 }
