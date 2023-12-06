@@ -13,9 +13,9 @@ import java.util.*;
  * (n - a1) + a1 = n ==> |a2 - a1| = (n - a1) - a1 = n - 2 * a1
  * 
  */
-class Soloution {
+class Solution {
     public static void main(String[] args) {
-        Soloution s = new Soloution();
+        Solution s = new Solution();
         System.out.println("result : " + s.solution(9, new int[][] {{1, 3}, {2, 3}, {3, 4}, {4, 5}, {4, 6}, {4, 7}, {7, 8}, {7, 9}})); 
     }
 
