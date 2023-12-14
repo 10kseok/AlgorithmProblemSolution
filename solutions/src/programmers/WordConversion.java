@@ -1,5 +1,6 @@
 package programmers;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -44,62 +45,98 @@ public class WordConversion {
 //    }
 
     // 1차 개선
+//    public int solution(String begin, String target, String[] words) {
+//        if (Arrays.stream(words)
+//                .noneMatch(word -> word.equals(target))) return 0;
+//
+//        Logger logger = new Logger(words.length);
+//        Queue<Node> tree = new LinkedList<>();
+//        tree.offer(new Node(0, begin));
+//
+//        while (!tree.isEmpty()) {
+//            Node curNode = tree.poll();
+//            if (curNode.data.equals(target)) return curNode.level;
+//            for (int i = 0; i < words.length; i++) {
+//                if (logger.hasLogAt(i)) continue;
+//                if (SimilarityValidator.validate(curNode.data, words[i])) {
+//                    tree.offer(new Node(curNode.level + 1, words[i]));
+//                    logger.log(i);
+//                }
+//            }
+//        }
+//        return 0;
+//    }
+//
+//    static class Logger {
+//        private final boolean[] logs;
+//
+//        public Logger(int n) {
+//            this.logs = new boolean[n];
+//        }
+//
+//        void log(int i) {
+//            this.logs[i] = true;
+//        }
+//
+//        boolean hasLogAt(int i) {
+//            return this.logs[i];
+//        }
+//    }
+//
+//    static class SimilarityValidator {
+//        static boolean validate(String a, String b) {
+//            int count = 0;
+//            for (int i = 0; i < a.length(); i++) {
+//                if (a.charAt(i) == b.charAt(i)) count++;
+//            }
+//            return count == a.length() - 1;
+//        }
+//    }
+//
+//    static class Node {
+//        private int level;
+//        private String data;
+//
+//        public Node(int level, String data) {
+//            this.level = level;
+//            this.data = data;
+//        }
+//    }
+
+    // DFS 풀이
+    static int answer;
+    static String[] words;
+    static boolean[] logs;
     public int solution(String begin, String target, String[] words) {
-        if (Arrays.stream(words)
-                .noneMatch(word -> word.equals(target))) return 0;
+        WordConversion.answer = Integer.MAX_VALUE;
+        WordConversion.words = words;
+        WordConversion.logs = new boolean[words.length];
+        dfs(0, begin, target);
 
-        Logger logger = new Logger(words.length);
-        Queue<Node> tree = new LinkedList<>();
-        tree.offer(new Node(0, begin));
+        return answer;
+    }
 
-        while (!tree.isEmpty()) {
-            Node curNode = tree.poll();
-            if (curNode.data.equals(target)) return curNode.level;
-            for (int i = 0; i < words.length; i++) {
-                if (logger.hasLogAt(i)) continue;
-                if (SimilarityValidator.validate(curNode.data, words[i])) {
-                    tree.offer(new Node(curNode.level + 1, words[i]));
-                    logger.log(i);
-                }
+    public static void dfs(int step, String word, String target) {
+        if (word.equals(target)) {
+            WordConversion.logs[WordConversion.words.length - 1] = false;
+            WordConversion.answer = Math.min(step, WordConversion.answer);
+            return;
+        }
+
+        for (int i = 0; i < WordConversion.words.length; i++) {
+            if (!WordConversion.logs[i] && validate(word, WordConversion.words[i])) {
+                WordConversion.logs[i] = true;
+                dfs(step + 1, WordConversion.words[i], target);
             }
         }
-        return 0;
     }
 
-    static class Logger {
-        private final boolean[] logs;
-
-        public Logger(int n) {
-            this.logs = new boolean[n];
+    private static boolean validate(String a, String b) {
+        int count = 0;
+        for (int i = 0; i < a.length(); i++) {
+            if (a.charAt(i) == b.charAt(i)) count++;
         }
-
-        void log(int i) {
-            this.logs[i] = true;
-        }
-
-        boolean hasLogAt(int i) {
-            return this.logs[i];
-        }
-    }
-
-    static class SimilarityValidator {
-        static boolean validate(String a, String b) {
-            int count = 0;
-            for (int i = 0; i < a.length(); i++) {
-                if (a.charAt(i) == b.charAt(i)) count++;
-            }
-            return count == a.length() - 1;
-        }
-    }
-
-    static class Node {
-        private int level;
-        private String data;
-
-        public Node(int level, String data) {
-            this.level = level;
-            this.data = data;
-        }
+        return count == a.length() - 1;
     }
 
     public static void main(String[] args) {
