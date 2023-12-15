@@ -45,6 +45,34 @@ public final class ArrayParser {
         return result.toArray(new int[0][]);
     }
 
+    public static String[][] parse(String array, String dummy) {
+        Deque<Chunk> bracketStack = new LinkedList<>();
+        List<String[]> result = new LinkedList<>();
+        String finedArray = array.replaceAll("[\\s\"]", "");
+        char[] chars = finedArray.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            switch (chars[i]) {
+                case '[':
+                    bracketStack.add(new Chunk(chars[i], i));
+                    break;
+                case ']':
+                    Chunk openBracket = bracketStack.pollLast();
+                    // 제일 바깥 괄호인 경우
+                    if (bracketStack.isEmpty()) {
+                        continue;
+                    }
+                    if (openBracket == null || openBracket.content != '[') {
+                        throw new RuntimeException("잘못된 입력 형태입니다. (열린 괄호가 존재하지 않아요!)");
+                    }
+                    int startIdx = openBracket.index + 1;
+                    String[] parsedArray = finedArray.substring(startIdx, i).split(",");
+                    result.add(parsedArray);
+                    break;
+            }
+        }
+        return result.toArray(new String[0][]);
+    }
+
     private static class Chunk {
         private final char content;
         private final int index;
