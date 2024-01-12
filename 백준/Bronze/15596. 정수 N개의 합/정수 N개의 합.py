@@ -1,2 +1,5 @@
-def solve(a: list) -> int:
-    return sum(a)
+def solve(a):
+    total = 0
+    for num in a:
+        total += num
+    return total
