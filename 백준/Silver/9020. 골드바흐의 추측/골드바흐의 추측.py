@@ -16,12 +16,12 @@ for i in range(2, max_T_idx):
         prime_table[j] = 0
 # 소수 합 찾기
 for idx, t in enumerate(T):
-    for num in range(2, t + 1):
+    for num in range(2, t // 2 + 1):
         if prime_table[num] == 0:
             continue
         if prime_table[t - num] != 0 \
             and abs((t - num) - num) < abs(partitions[idx][0] - partitions[idx][1]):
             diff = t - num
             partitions[idx] = (min(num, diff), max(num, diff))
-            
+
     print(*partitions[idx])
