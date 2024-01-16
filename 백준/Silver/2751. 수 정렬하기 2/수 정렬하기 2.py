@@ -58,5 +58,5 @@ sys.setrecursionlimit(10 ** 6)
 input_buffer = [int(sys.stdin.readline()) for _ in range(n)]
 # quick_sort(buffer, 0, len(buffer) - 1)
 merge_sort(input_buffer)
-
-print(*input_buffer, sep="\n")
+sys.stdout.write('\n'.join(map(str, input_buffer)))
+# print(*input_buffer, sep="\n")
