@@ -2,7 +2,8 @@ import sys
 from collections import deque
 
 n = int(input())
-cmds = [sys.stdin.readline() for _ in range(n)]
+# cmds = [sys.stdin.readline() for _ in range(n)]
+cmds = sys.stdin.read().splitlines()
 
 def queue(cmds):
     buffer = deque()
