@@ -17,9 +17,6 @@ def queue(cmds):
         return buffer.popleft()
     def empty():
         return size() == 0
-    def top():
-        if empty(): return -1
-        return buffer[-1]
     def front():
         if empty(): return -1
         return buffer[0]
