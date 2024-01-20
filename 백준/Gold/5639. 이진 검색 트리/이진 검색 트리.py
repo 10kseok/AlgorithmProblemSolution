@@ -12,10 +12,18 @@ while True:
         break
 
 def post_order(start, end):
-    if start >= end:
+    if start >= (end - 1): # 시작 값, 끝 값이 루트이자 마지막 일 때!
+        post_order_route.append(f'{pre_order[start]}')
         return
-    mid = start + 1
 
+    # 왼쪽으로 치우친 트리 or 오른쪽으로 치우친 트리
+    if pre_order[start] > pre_order[end - 1] \
+        or pre_order[start] < pre_order[start + 1]:
+        post_order(start + 1, end)
+        post_order_route.append(f'{pre_order[start]}')
+        return
+        
+    mid = start + 1
     for i in range(start + 1, end):
         if pre_order[start] < pre_order[i]:
             # 루트보다 큰 값은 오른쪽 서브트리에 해당한다.
@@ -28,3 +36,4 @@ def post_order(start, end):
 
 post_order(0, len(pre_order))
 print("\n".join(post_order_route))
+    
