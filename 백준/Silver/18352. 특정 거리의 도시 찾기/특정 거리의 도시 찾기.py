@@ -18,12 +18,13 @@ def bfs(start):
 
     while queue:
         cur_city = queue.popleft()
-        if distance[cur_city] != float('inf') and K < distance[cur_city]: continue
+        if distance[cur_city] != INF and K <= distance[cur_city]: continue
         for adj in graph[cur_city]:
             if not visited[adj]:
                 visited[adj] = True
                 distance[adj] = min(distance[cur_city] + 1, distance[adj])
                 queue.append(adj)
 
+shortest_K = map(str, filter(lambda x: distance[x] == K, range(N + 1)))
 bfs(X)
-print("\n".join(map(str, sorted([idx for idx, d in enumerate(distance) if d == K]))) or -1)
+print("\n".join(shortest_K) or -1)
