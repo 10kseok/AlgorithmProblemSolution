@@ -11,14 +11,13 @@ graph = [[NOT_CONNECTED] * (N + 1) for _ in range(N + 1)]
 
 for _ in range(M):
     v1, v2 = map(int, sys.stdin.readline().split())
-    graph[v1][v2] = 1
-    graph[v2][v1] = 1
+    graph[v1][v2] = CONNECTED
+    graph[v2][v1] = CONNECTED
 
 def dfs(start, path, visited):
     visited[start] = True
     for target in range(1, N + 1):
-        if graph[start][target] == NOT_CONNECTED: continue
-        if not visited[target]:
+        if graph[start][target] == CONNECTED and not visited[target]:
             path.append(target)
             dfs(target, path, visited)
 
@@ -36,8 +35,7 @@ def print_bfs(base, visited):
         path.append(next_vertex)
         # 인접 경로들 탐색 예정큐에 추가
         for target in range(1, N + 1):
-            if graph[next_vertex][target] == NOT_CONNECTED: continue
-            if not visited[target]:
+            if graph[next_vertex][target] == CONNECTED and not visited[target]:
                 traveral_queue.append(target)
     print(*path)
 
