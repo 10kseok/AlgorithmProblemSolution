@@ -28,10 +28,10 @@ for _ in range(K):
         graph[v2].append(v1)
     
     directions = [DEFAULT_DIRECTION] * (V + 1)
-    check = 0
+    result = "YES"
     for i in range(1, V + 1):
         if directions[i] == DEFAULT_DIRECTION and \
             not bfs(i, graph, directions):
-            check = 1  
+            result = "NO"  
             break
-    print("YES" if check == 0 else "NO")
+    print(result)
