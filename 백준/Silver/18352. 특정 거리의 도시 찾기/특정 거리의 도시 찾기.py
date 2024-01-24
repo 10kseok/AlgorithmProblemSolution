@@ -22,7 +22,7 @@ def bfs(start):
         for adj in graph[cur_city]:
             if not visited[adj]:
                 visited[adj] = True
-                distance[adj] = min(distance[cur_city] + 1, distance[adj])
+                distance[adj] = distance[cur_city] + 1
                 queue.append(adj)
 
 shortest_K = map(str, filter(lambda x: distance[x] == K, range(N + 1)))
