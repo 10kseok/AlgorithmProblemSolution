@@ -1,31 +1,28 @@
 import sys
-
 input = sys.stdin.readline
 
+def solve():
+    n, m = int(input()), int(input())
+    INF = 100_000 * n + 1
+    graph = [[INF] * n for _ in range(n)]
 
-def solution():
-    n = int(input())
-    m = int(input())
-
-    INF = 1000000000
-    distance = [[INF] * (n + 1) for _ in range(n + 1)]
-
-    for i in range(1, n + 1):
-        distance[i][i] = 0
+    for i in range(n):
+        graph[i][i] = 0
 
     for _ in range(m):
-        a, b, c = map(int, input().split())
-        if distance[a][b] > c:
-            distance[a][b] = c
+        i, j, c = map(int, input().split())
+        if graph[i - 1][j - 1] > c:
+            graph[i - 1][j - 1] = c
+        # graph[i - 1][j - 1] = min(graph[i - 1][j - 1], c)
 
-    for k in range(1, n + 1):
-        for i in range(1, n + 1):
-            for j in range(1, n + 1):
-                if distance[i][j] > distance[i][k] + distance[k][j]:
-                    distance[i][j] = distance[i][k] + distance[k][j]
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                if graph[i][j] > graph[i][k] + graph[k][j]:
+                    graph[i][j] = graph[i][k] + graph[k][j]
+                # graph[i][j] = min(graph[i][j], graph[i][k] + graph[k][j])
 
-    for i in range(1, n + 1):
-        print(*[x if x != INF else 0 for x in distance[i][1:]])
+    for g in graph:
+        print(*[x if x != INF else 0 for x in g])
 
-
-solution()
+solve()
