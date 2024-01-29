@@ -3,11 +3,10 @@ input = sys.stdin.readline
 
 n, m = int(input()), int(input())
 INF = 100_000 * n + 1
-graph = [[0] * n for _ in range(n)]
+graph = [[INF] * n for _ in range(n)]
 
 for i in range(n):
-    for j in range(n):
-        if i != j: graph[i][j] = INF
+    graph[i][i] = 0
 
 for _ in range(m):
     i, j, c = map(int, input().split())
@@ -18,10 +17,6 @@ for k in range(n):
         for j in range(n):
             graph[i][j] = min(graph[i][j], graph[i][k] + graph[k][j])
 
-for i in range(n):
-    for j in range(n):
-        if graph[i][j] == INF:
-            graph[i][j] = 0
-
 for g in graph:
-    print(*g)
+    print(*[x if x != INF else 0 for x in g])
+
