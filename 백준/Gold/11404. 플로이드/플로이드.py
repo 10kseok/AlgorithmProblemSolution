@@ -10,12 +10,16 @@ for i in range(n):
 
 for _ in range(m):
     i, j, c = map(int, input().split())
-    graph[i - 1][j - 1] = min(graph[i - 1][j - 1], c)
+    if graph[i - 1][j - 1] > c:
+        graph[i - 1][j - 1] = c
+    # graph[i - 1][j - 1] = min(graph[i - 1][j - 1], c)
 
 for k in range(n):
     for i in range(n):
         for j in range(n):
-            graph[i][j] = min(graph[i][j], graph[i][k] + graph[k][j])
+            if graph[i][j] > graph[i][k] + graph[k][j]:
+                graph[i][j] = graph[i][k] + graph[k][j]
+            # graph[i][j] = min(graph[i][j], graph[i][k] + graph[k][j])
 
 for g in graph:
     print(*[x if x != INF else 0 for x in g])
