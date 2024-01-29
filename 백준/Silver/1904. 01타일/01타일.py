@@ -1,12 +1,8 @@
-N = int(input())
+import sys
 
-def cal_cases(n):
-    tile_cases = {1 : 1, 2 : 2}
+a, b = 0, 1
+N = int(sys.stdin.readline())
+for _ in range(N):
+    a, b = b % 15746, (a + b) % 15746
+print(b)
 
-    if n not in tile_cases.keys():
-        for i in range(3, N+1):
-            tile_cases[i] = (tile_cases[i-1] + tile_cases[i-2]) % 15746
-
-    return tile_cases[n]
-
-print(cal_cases(N))
