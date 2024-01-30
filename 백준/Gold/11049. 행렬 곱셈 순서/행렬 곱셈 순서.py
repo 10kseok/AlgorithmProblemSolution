@@ -1,6 +1,6 @@
 import sys
 input = sys.stdin.readline
-INF = 2 ** 32
+INF = 2 ** 31
 
 def minimum(M, A, i, j):
     min_value = INF
@@ -13,14 +13,12 @@ def minimum(M, A, i, j):
 def solution():
     N = int(input())
     A = []
-    for i in range(N):
-        if i == 0:
-            r, c = map(int, input().split())
-            A.append(r)
-            A.append(c)
-        else:
-            _, c = map(int, input().split())
-            A.append(c)
+    r, c = map(int, input().split())
+    A.append(r)
+    A.append(c)
+    for i in range(1, N):
+        _, c = map(int, input().split())
+        A.append(c)
     N = len(A) - 1
     M = [[0] * (N + 1) for _ in range(N + 1)]
 
