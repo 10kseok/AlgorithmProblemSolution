@@ -22,9 +22,7 @@ def solution():
             _, c = map(int, input().split())
             A.append(c)
     N = len(A) - 1
-    M = [[-1] * (N + 1) for _ in range(N + 1)]
-    for i in range(1, N + 1):
-        M[i][i] = 0
+    M = [[0] * (N + 1) for _ in range(N + 1)]
 
     for diagonal in range(1, N):
         for i in range(1, N - diagonal + 1):
