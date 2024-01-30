@@ -6,14 +6,14 @@ def solution():
     result = []
     for _ in range(T):
         N, coins, M = int(input()), list(map(int, input().split())), int(input())
-        
+
         dp = [0] * (M + 1)
         dp[0] = 1
 
-        for i in range(N):
-            for j in range(M + 1):
-                if j >= coins[i]:
-                    dp[j] += dp[j - coins[i]]
+        for coin in coins:
+            for i in range(coin, M + 1):
+                if i >= coin:
+                    dp[i] += dp[i - coin]
         result.append(f'{dp[M]}')
     print("\n".join(result))
 solution()
