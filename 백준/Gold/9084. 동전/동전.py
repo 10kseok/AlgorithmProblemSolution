@@ -12,8 +12,7 @@ def solution():
 
         for coin in coins:
             for i in range(coin, M + 1):
-                if i >= coin:
-                    dp[i] += dp[i - coin]
+                dp[i] += dp[i - coin]
         result.append(f'{dp[M]}')
     print("\n".join(result))
 solution()
