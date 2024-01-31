@@ -12,10 +12,10 @@ def solution():
     meetings.sort(key= lambda x: (x[END], x[START]))
 
     count = 1
-    cur_meeting = meetings[0]
-    for idx in range(1, len(meetings)):
-        if cur_meeting[END] <= meetings[idx][START]:
-            cur_meeting = meetings[idx]
+    prev_meeting = meetings[0]
+    for meeting in meetings[1:]:
+        if prev_meeting[END] <= meeting[START]:
+            prev_meeting = meeting
             count += 1
 
     print(count)
