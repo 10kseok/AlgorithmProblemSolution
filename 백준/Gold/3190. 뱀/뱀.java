@@ -17,9 +17,9 @@ class Main {
     private static final int ROTATE = 1;
     private static final int APPLE = 1;
 
-    // 동, 서, 남, 북
-    private static final int[] dr = new int[] {0, 0, 1, -1};
-    private static final int[] dc = new int[] {1, -1, 0, 0};
+    // 동(0도), 북(90도), 서(180도), 남(270도)
+    private static final int[] dr = new int[] {0, -1, 0, 1};
+    private static final int[] dc = new int[] {1, 0, -1, 0};
 
 
     public static void main(String[] args) throws IOException {
@@ -42,64 +42,74 @@ class Main {
         for (int i = 0; i < L; i++) {
             StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
             directions.add(
-                new int[]{Integer.parseInt(tokenizer.nextToken()), tokenizer.nextToken().equals("D") ? RIGHT : LEFT}
+                    new int[]{Integer.parseInt(tokenizer.nextToken()), tokenizer.nextToken().equals("D") ? RIGHT : LEFT}
             );
         }
 
 
-        writer.write(String.valueOf(startDummyGame(board, directions)));
+//        writer.write(String.valueOf(startDummyGame(board, directions)));
+        writer.write(String.valueOf(startDummyGameWithTryExcept(board, directions)));
 
         reader.close();
         writer.close();
     }
 
-    private static int startDummyGame(int[][] board, Queue<int[]> directions) {
+//    private static int startDummyGame(int[][] board, Queue<int[]> directions) {
+//        int time = 0;
+//        int curDirection = 0;
+//        int border = board.length;
+//        Deque<int[]> snakeQueue = new LinkedList<>();
+//        snakeQueue.add(new int[] {0, 0});
+//
+//        while (true) {
+//            int[] curPos = snakeQueue.peekFirst();
+//            assert curPos != null;
+//            int[] nextPos = new int[] {curPos[ROW] + dr[curDirection], curPos[COL] + dc[curDirection]};
+//            if (nextPos[ROW] < 0 || nextPos[ROW] >= border
+//                    || nextPos[COL] < 0 || nextPos[COL] >= border
+//                    || touchTail(snakeQueue, nextPos)) {
+//                time++;
+//                break;
+//            }
+//            snakeQueue.addFirst(nextPos);
+//            if (snakeQueue.size() != 1 && board[nextPos[ROW]][nextPos[COL]] != APPLE) snakeQueue.pollLast();
+//            if (board[nextPos[ROW]][nextPos[COL]] == APPLE) board[nextPos[ROW]][nextPos[COL]] = 0;
+//            time++;
+//            curDirection = changeDirectionIfNeeded(directions, time, curDirection);
+//        }
+//        return time;
+//    }
+
+    private static int startDummyGameWithTryExcept(int[][] board, Queue<int[]> directions) {
         int time = 0;
         int curDirection = 0;
-        int border = board.length;
-        int[] DEFAULT_POS = new int[] {0, 0};
         Deque<int[]> snakeQueue = new LinkedList<>();
-        snakeQueue.add(DEFAULT_POS);
+        snakeQueue.add(new int[] {0, 0});
 
-        while (true) {
-            int[] curPos = snakeQueue.peekFirst();
-            assert curPos != null;
-            int[] nextPos = new int[] {curPos[ROW] + dr[curDirection], curPos[COL] + dc[curDirection]};
-            if (nextPos[ROW] < 0 || nextPos[ROW] >= border
-                    || nextPos[COL] < 0 || nextPos[COL] >= border
-                    || touchTail(snakeQueue, nextPos)) {
+        try {
+            while (true) {
+                int[] curPos = snakeQueue.peekFirst();
+                assert curPos != null;
+                int[] nextPos = new int[] {curPos[ROW] + dr[curDirection], curPos[COL] + dc[curDirection]};
+                if (touchTail(snakeQueue, nextPos)) throw new RuntimeException();
+                snakeQueue.addFirst(nextPos);
+                if (snakeQueue.size() != 1 && board[nextPos[ROW]][nextPos[COL]] != APPLE) snakeQueue.pollLast();
+                if (board[nextPos[ROW]][nextPos[COL]] == APPLE) board[nextPos[ROW]][nextPos[COL]] = 0;
                 time++;
-                break;
+                curDirection = changeDirectionIfNeeded(directions, time, curDirection);
             }
-            snakeQueue.addFirst(nextPos);
-            if (snakeQueue.size() != 1 && board[nextPos[ROW]][nextPos[COL]] != APPLE) snakeQueue.pollLast();
-            if (board[nextPos[ROW]][nextPos[COL]] == APPLE) board[nextPos[ROW]][nextPos[COL]] = 0;
+        } catch (Throwable e) {
             time++;
-
-            if (directions.peek() != null && directions.peek()[TIME] == time) {
-                int rotate = directions.poll()[ROTATE];
-                // 동, 서, 남, 북
-                switch (curDirection) {
-                    case 0:
-                        // 동 -> 북, 남
-                        curDirection = rotate == LEFT ? 3 : 2;
-                        break;
-                    case 1:
-                        // 서 -> 남, 북
-                        curDirection = rotate == LEFT ? 2 : 3;
-                        break;
-                    case 2:
-                        // 남 -> 동, 서
-                        curDirection = rotate == LEFT ? 0 : 1;
-                        break;
-                    case 3:
-                        // 북 -> 서, 동
-                        curDirection = rotate == LEFT ? 1 : 0;
-                        break;
-                }
-            }
         }
         return time;
+    }
+
+    private static int changeDirectionIfNeeded(Queue<int[]> directions, int time, Integer curDirection) {
+        if (directions.peek() != null && directions.peek()[TIME] == time) {
+            int rotate = directions.poll()[ROTATE];
+            curDirection = (rotate == LEFT ? curDirection + 1 : curDirection + 3) % 4;
+        }
+        return curDirection;
     }
 
     private static boolean touchTail(Queue<int[]> snakeQueue, int[] nextPos) {
