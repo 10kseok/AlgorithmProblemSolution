@@ -24,9 +24,9 @@ class Main {
         writer.close();
     }
 
-    private static int calculateMinimumOilCost(int[] distance, int[] costsByCity) {
-        int minimumCost = costsByCity[0];
-        int total = minimumCost * distance[0];
+    private static long calculateMinimumOilCost(int[] distance, int[] costsByCity) {
+        long minimumCost = costsByCity[0];
+        long total = minimumCost * distance[0];
         for (int i = 1; i < distance.length; i++) {
             if (minimumCost > costsByCity[i]) minimumCost = costsByCity[i];
             total += minimumCost * distance[i];
