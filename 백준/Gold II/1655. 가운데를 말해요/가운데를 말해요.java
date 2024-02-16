@@ -25,8 +25,11 @@ class Main {
 
     private static String sayCenterNumberIn(int[] baekjoonSays) {
         int midNum = baekjoonSays[0];
-        StringJoiner stringJoiner = new StringJoiner("\n");
-        stringJoiner.add(String.valueOf(midNum));
+//        StringJoiner stringJoiner = new StringJoiner("\n");
+//        stringJoiner.add(String.valueOf(midNum));
+        StringBuilder sb = new StringBuilder();
+        sb.append(midNum);
+        sb.append("\n");
         PriorityQueue<Integer> smallerQueue = new PriorityQueue<>(Comparator.reverseOrder());
         PriorityQueue<Integer> largerQueue = new PriorityQueue<>();
         for (int i = 1; i < baekjoonSays.length; i++) {
@@ -44,8 +47,11 @@ class Main {
                 largerQueue.add(midNum);
                 midNum = newMid;
             }
-            stringJoiner.add(String.valueOf(midNum));
+//            stringJoiner.add(String.valueOf(midNum));
+            sb.append(midNum);
+            sb.append("\n");
         }
-        return stringJoiner.toString();
+//        return stringJoiner.toString();
+        return sb.toString();
     }
 }
