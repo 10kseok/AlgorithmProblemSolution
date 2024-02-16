@@ -5,7 +5,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Comparator;
 import java.util.PriorityQueue;
-import java.util.StringJoiner;
 
 class Main {
     public static void main(String[] args) throws IOException {
@@ -25,8 +24,6 @@ class Main {
 
     private static String sayCenterNumberIn(int[] baekjoonSays) {
         int midNum = baekjoonSays[0];
-//        StringJoiner stringJoiner = new StringJoiner("\n");
-//        stringJoiner.add(String.valueOf(midNum));
         StringBuilder sb = new StringBuilder();
         sb.append(midNum);
         sb.append("\n");
@@ -41,17 +38,14 @@ class Main {
                 int newMid = largerQueue.poll();
                 smallerQueue.add(midNum);
                 midNum = newMid;
-            }
-            if (smallerQueue.size() > largerQueue.size()) {
+            } else if (smallerQueue.size() > largerQueue.size()) {
                 int newMid = smallerQueue.poll();
                 largerQueue.add(midNum);
                 midNum = newMid;
             }
-//            stringJoiner.add(String.valueOf(midNum));
             sb.append(midNum);
             sb.append("\n");
         }
-//        return stringJoiner.toString();
         return sb.toString();
     }
 }
