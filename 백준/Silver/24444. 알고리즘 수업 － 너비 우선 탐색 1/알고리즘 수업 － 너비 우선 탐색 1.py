@@ -9,8 +9,6 @@ def solution():
         start, end = map(int, input().split())
         graph[start].append(end)
         graph[end].append(start)
-    for nodes in graph:
-        nodes.sort()
                 
     orders = [0 for _ in range(N + 1)]
     visited = [False for _ in range(N + 1)]
@@ -21,6 +19,7 @@ def solution():
     orders[R] = order
     while queue:
         node = queue.popleft()
+        graph[node].sort()
         for v in graph[node]:
             if not visited[v]:
                 visited[v] = True
