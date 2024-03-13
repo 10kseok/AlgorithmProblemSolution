@@ -1,8 +1,20 @@
 import sys
 input = sys.stdin.readline
+result = [-1]
 
+def dfs(start, count, visited):
+    if result[0] != -1: return
+    if start == end:
+        result[0] = count
+        return
+    
+    for node in graph[start]:
+        if not visited[node]:
+            visited[node] = True
+            dfs(node, count + 1, visited)
+    
 def solution():
-    global result
+    global end, graph
     n = int(input())
     start, end = map(int, input().split())
     m = int(input())
@@ -12,22 +24,10 @@ def solution():
         graph[n1].append(n2)
         graph[n2].append(n1)
         
-    result = -1
     visited = [False] * (n + 1)
     visited[start] = True
-    def dfs(start, count):
-        global result
-        if result != -1: return
-        if start == end:
-            result = count
-            return
-        for node in graph[start]:
-            if not visited[node]:
-                visited[node] = True
-                dfs(node, count + 1)
-    dfs(start, 0)
-    
-    print(result)
+    dfs(start, 0, visited)
+    print(result[0])
 
         
 if __name__=="__main__":
