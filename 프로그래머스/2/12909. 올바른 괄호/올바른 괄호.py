@@ -7,6 +7,4 @@ def solution(s):
             if not stack:
                 return False
             stack.pop()
-    if stack:
-        return False
-    return True
+    return len(stack) == 0
