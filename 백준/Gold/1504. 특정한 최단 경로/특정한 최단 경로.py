@@ -3,7 +3,7 @@ from heapq import heappop, heappush
 input = sys.stdin.readline
 DIST, DEST = 0, 1
 
-def dijk(start, target):
+def dijk(start):
     distance_table = [float('inf')] * (N + 1)
     distance_table[start] = 0
     route_Q = [(0, start)]
@@ -18,7 +18,7 @@ def dijk(start, target):
                 distance_table[n_dest] = n_dist + distance_table[cur_node]
                 heappush(route_Q, next_n)
                 
-    return distance_table[target]
+    return distance_table
         
 def solution():
     global graph, N
@@ -28,14 +28,18 @@ def solution():
         a, b, distance = map(int, input().split())
         graph[a].append((distance, b))
         graph[b].append((distance, a))
-    stopover1, stopover2 = map(int, input().split())
+    stopover_v1, stopover_v2 = map(int, input().split())
 
-    distance_table = [float('inf')] * (N + 1)
-    distance_table[1] = 0
-    case1 = dijk(1, stopover1) + dijk(stopover1, stopover2) + dijk(stopover2, N)
-    case2 = dijk(1, stopover2) + dijk(stopover2, stopover1) + dijk(stopover1, N)
-    answer = min(case1, case2)
+    start = dijk(1) # 1로 시작한 최단 경로
+    route1 = dijk(stopover_v1) # 경유지 v1으로 시작한 최단 경로
+    route2 = dijk(stopover_v2) # 경유지 v2로 시작한 최단 경로
+    
+    v1_first_route = start[stopover_v1] + route1[stopover_v2] + route2[N]
+    v2_first_route = start[stopover_v2] + route2[stopover_v1] + route1[N]
+    
+    answer = min(v1_first_route, v2_first_route)
     print(answer if answer != float('inf') else -1)
     
 if __name__=="__main__":
     solution() 
+
