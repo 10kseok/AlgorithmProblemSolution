@@ -1,10 +1,10 @@
 import sys
 from heapq import heappop, heappush
 input = sys.stdin.readline
-DIST, DEST = 0, 1
+DIST, DEST, MAX = 0, 1, 200000000
 
 def dijk(start):
-    distance_table = [float('inf')] * (N + 1)
+    distance_table = [MAX] * (N + 1)
     distance_table[start] = 0
     route_Q = [(0, start)]
     while route_Q:
@@ -38,7 +38,7 @@ def solution():
     v2_first_route = start[stopover_v2] + route2[stopover_v1] + route1[N]
     
     answer = min(v1_first_route, v2_first_route)
-    print(answer if answer != float('inf') else -1)
+    print(answer if answer < MAX else -1)
     
 if __name__=="__main__":
     solution() 
