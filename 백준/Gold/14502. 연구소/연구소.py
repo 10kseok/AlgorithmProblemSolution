@@ -1,20 +1,22 @@
 import sys
 input = sys.stdin.readline
 
+from itertools import combinations
+
 DIRECTION = [(0, 1), (0, -1), (1, 0), (-1, 0)] # 동 서 남 북
-def combinations(blanks, r):
-    result = []
+# def combinations(blanks, r):
+#     result = []
     
-    def generate_comb(buf, start, k):
-        if k == 0:
-            result.append(buf[:])
-            return
-        for i in range(start, len(blanks)):
-            buf.append(blanks[i])
-            generate_comb(buf, i + 1, k - 1)
-            buf.pop()
-    generate_comb([], 0, r)
-    return result
+#     def generate_comb(buf, start, k):
+#         if k == 0:
+#             result.append(buf[:])
+#             return
+#         for i in range(start, len(blanks)):
+#             buf.append(blanks[i])
+#             generate_comb(buf, i + 1, k - 1)
+#             buf.pop()
+#     generate_comb([], 0, r)
+#     return result
 
 def spread_virus_by_dfs(lab_map, i, j):
     if lab_map[i][j] == 1:
@@ -44,7 +46,7 @@ def solution():
     N, M = map(int, input().split())
     lab_map = [list(map(int, input().split())) for _ in range(N)]
     blanks = [(i, j) for i in range(N) for j in range(M) if lab_map[i][j] == 0]
-    comb_blanks = combinations(blanks, 3)
+    comb_blanks = list(combinations(blanks, 3))
     
     max_safe_area = 0
     for c1, c2, c3 in comb_blanks:
