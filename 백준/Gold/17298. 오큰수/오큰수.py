@@ -5,15 +5,17 @@ def solution():
     N = int(input())
     sequence = list(map(int, input().split()))
     
-    answer = [0] * N
+    answer = ['-1'] * N
     nge_stack = []
     for i in range(len(sequence) - 1, -1, -1):
-        while (nge_stack and nge_stack[-1] <= sequence[i]):
+        while (nge_stack and sequence[nge_stack[-1]] <= sequence[i]):
             nge_stack.pop()
-        answer[i] = nge_stack[-1] if nge_stack else -1
-        nge_stack.append(sequence[i])
+        if nge_stack:
+            answer[i] = f'{sequence[nge_stack[-1]]}'
+        nge_stack.append(i)
     
-    print(*answer)
+    print(' '.join(answer))
     
 if __name__=="__main__":
-    solution()
+    solution() 
+
