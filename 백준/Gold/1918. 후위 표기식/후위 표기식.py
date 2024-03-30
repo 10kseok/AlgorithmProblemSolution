@@ -26,6 +26,6 @@ def solution():
     while stack:
         answer.append(stack.pop())
         
-    print(*answer, sep='')
+    print(''.join(answer))
 if __name__=="__main__":
     solution() 
