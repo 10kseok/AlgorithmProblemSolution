@@ -2,15 +2,12 @@ import sys
 input = sys.stdin.readline
 
 def solution():
-    _ = input()
+    a, b = map(int, input().split())
     A = set(input().rstrip().split()) 
     B = set(input().rstrip().split())
     A_without_B = A - B
-    B_without_A = B - A
-    A_without_B.update(B_without_A)
-    print(len(A_without_B))
-    
+    common = a - len(A_without_B)
+    print(a + b - 2 * common)
     
 if __name__=="__main__":
     solution() 
-
