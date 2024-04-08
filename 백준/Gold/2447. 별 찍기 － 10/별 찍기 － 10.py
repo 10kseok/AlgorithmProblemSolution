@@ -24,7 +24,8 @@ def solution():
             star_list = ['***', '* *', '***']
             return star_list
         sector = makeStars(n//3)
-        new_star_list = [x * 3 for x in sector] + [x + ' ' * (n // 3) + x for x in sector] + [x * 3 for x in sector]
+        upper_and_lower = [x * 3 for x in sector]
+        new_star_list = upper_and_lower + [x + ' ' * (n // 3) + x for x in sector] + upper_and_lower
         return new_star_list
 
     print('\n'.join(makeStars(N)))
