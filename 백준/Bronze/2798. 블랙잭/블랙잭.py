@@ -1,15 +1,27 @@
-n, m  = map(int, input().split())
+import sys
+input = sys.stdin.readline
 
-numbers = list(map(int, input().split()))
+def solution():
+    N, M = map(int, input().split())
+    cards = list(map(int, input().split()))
+    
+    global max_value
+    max_value = 0
+    def max_of_nCr(n, r, i, choices):
+        global max_value
+        if len(choices) == r:
+            total = sum(choices)
+            if max_value < total <= M:
+                max_value = total
+            return
 
-# 세장을 골라서 더한다. 모든 경우의수를 다 ~ 더해서 구한다. m 넘는거 짜른다. 그중 젤 큰수의 조합 뽑는다.
-total = []
-for i in range(0, len(numbers) - 2):
-    for j in range(i + 1, len(numbers) - 1):
-        for k in range(j + 1, len(numbers)):
-            part_total = numbers[i] + numbers[j] + numbers[k]
-            if part_total <= m:
-                total.append(numbers[i] + numbers[j] + numbers[k])
-            
-total.sort(reverse=True)
-print(total[0])
+        for idx in range(i, n):
+            choices.append(cards[idx])
+            max_of_nCr(n, r, idx + 1, choices)
+            choices.pop()
+    
+    max_of_nCr(N, 3, 0, [])
+    print(max_value)
+
+if __name__=="__main__":
+    solution()
