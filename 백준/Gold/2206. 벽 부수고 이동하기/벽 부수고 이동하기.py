@@ -14,7 +14,7 @@ def solution():
 
     shortest_Q = deque([])
     shortest_Q.append((0, 0, 0))
-    distance_table[0][0][NOT_BREAKED] = 1
+    distance_table[0][0][0] = 1
     
     while shortest_Q:
         row, col, has_breaked = shortest_Q.popleft()
@@ -26,14 +26,14 @@ def solution():
             nr, nc = row + d[0], col + d[1]
             if nr < 0 or N <= nr or nc < 0 or M <= nc:
                 continue
-            if matrix[nr][nc] == 1 and not has_breaked:
+            if matrix[nr][nc] == 1 and not has_breaked and distance_table[nr][nc][BREAKED] > distance_table[row][col][NOT_BREAKED] + 1:
                 distance_table[nr][nc][BREAKED] = distance_table[row][col][NOT_BREAKED] + 1
                 shortest_Q.append((nr, nc, BREAKED))
             elif matrix[nr][nc] == 0 and distance_table[nr][nc][has_breaked] == MAX_DISTANCE:
                 distance_table[nr][nc][has_breaked] = distance_table[row][col][has_breaked] + 1
-                shortest_Q.append((nr, nc, has_breaked))
-                
+                shortest_Q.append((nr, nc, has_breaked)) 
     print(-1)
    
+
 if __name__=="__main__":
     solution() 
