@@ -34,7 +34,7 @@ def solution():
                 pipeline_cnt += 1
                 break
             board[cur_r][cur_c] = 'x'
-            for d in DIRECTIONS[::-1]:
+            for d in (1, 1), (0, 1), (-1, 1):
                 nr, nc = cur_r + d[0], cur_c + d[1]
                 if nr < 0 or R <= nr or board[nr][nc] == 'x':
                     continue
