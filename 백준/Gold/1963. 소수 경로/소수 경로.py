@@ -22,6 +22,9 @@ def solution():
         while convert_Q:
             num = convert_Q.popleft()
             # after
+            if num == dest:
+                break
+                
             for d in range(4):
                 digit = 10**d # level of number
                 target_num = num // digit % 10
