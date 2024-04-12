@@ -1,38 +1,25 @@
-from collections import deque
 import sys
+
 input = sys.stdin.readline
 
 def solution():
     N, MAX_CAPACITY = map(int, input().split())
     M = int(input())
-    load_Q = [list(map(int, input().split())) for _ in range(M)]
-    load_Q.sort()
-    load_Q = deque(load_Q)
-    unload_table = [0] * (N + 1)
-    cur_capa, total_delivery_cnt = MAX_CAPACITY, 0
-    for i in range(1, N + 1):
-        if unload_table[i]: # unload
-            total_delivery_cnt += unload_table[i]
-            cur_capa += unload_table[i]
-            unload_table[i] = 0
-            
-        while load_Q:
-            src, dest, cnt = load_Q.popleft()
-            if src != i:
-                load_Q.appendleft([src, dest, cnt])
-                break
-            
-            if cur_capa == 0:
-                break
-                
-            if src == i: # load
-                load = cnt
-                if cur_capa < load:
-                    load = cur_capa
-                cur_capa -= load
-                unload_table[dest] += load
-                
-    print(total_delivery_cnt)
-            
+    waybills = [list(map(int, input().split())) for _ in range(M)]
+    waybills.sort(key=lambda x:x[1])
+    loads_per_city = [MAX_CAPACITY] * (N + 1)
+    total_load_cnt = 0
+    
+    for src, dest, box in waybills:
+        load = MAX_CAPACITY
+        for i in range(src, dest):
+            if load > min(loads_per_city[i], box):
+                load = min(loads_per_city[i], box)
+        for i in range(src, dest):
+            loads_per_city[i] -= load # loading
+        total_load_cnt += load # unloading
+    
+    print(total_load_cnt)
+    
 if __name__=="__main__":
     solution() 
