@@ -10,16 +10,15 @@ def solution(n, edge):
         graph[dst].append(src)
     
     search_Q = deque([])
-    search_Q.append((1, 0))
-    distance_table[1] = -1 
+    search_Q.append(1) 
     while search_Q:
-        node, distance = search_Q.popleft()
+        node = search_Q.popleft()
         
         for next_n in graph[node]:
-            if distance_table[next_n] != 0:
+            if distance_table[next_n] != 0 or next_n == 1:
                 continue
-            distance_table[next_n] = distance + 1
-            search_Q.append((next_n, distance + 1))
+            distance_table[next_n] = distance_table[node] + 1
+            search_Q.append(next_n)
     
     longest_d = max(distance_table)
     answer = len([d for d in distance_table if d == longest_d])
