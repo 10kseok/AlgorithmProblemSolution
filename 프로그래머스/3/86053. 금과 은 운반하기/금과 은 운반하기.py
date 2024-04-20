@@ -1,6 +1,6 @@
 def solution(a, b, g, s, w, t):
     total_g, total_s = 0, 0
-    min_ellapsed_time, max_ellapsed_time = 1, 1
+    min_ellapsed_time, max_ellapsed_time = 0, 1
     # 각 도시의 모든 자원을 옮겼을 때의 최대 시간을 구한다.
     for i in range(len(g)):
         _g, _s, _w, _t = g[i], s[i], w[i], t[i]
@@ -30,13 +30,11 @@ def solution(a, b, g, s, w, t):
             total_s += min(_s, deliverable_weight) # (100, 101) (100, 21)
         
         # (101, 100, 100) (21, 21, 21)
-        print(f"time : {time} | {total_rsc} {total_g} {total_s}")
         return total_rsc >= (a + b) and total_g >= a and total_s >= b
     
     # 최대 시간을 기준으로, 시간을 줄여가며(이분 탐색) a, b를 만족하는 최적의 시간을 찾는다.
     while min_ellapsed_time <= max_ellapsed_time:
         fastest_time = (min_ellapsed_time + max_ellapsed_time) // 2
-        print("validate before", min_ellapsed_time, fastest_time, max_ellapsed_time)
         if can_delivery_in(fastest_time):
             max_ellapsed_time = fastest_time - 1
             continue
