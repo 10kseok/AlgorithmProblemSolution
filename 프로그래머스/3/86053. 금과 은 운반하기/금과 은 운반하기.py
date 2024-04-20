@@ -1,14 +1,14 @@
 def solution(a, b, g, s, w, t):
     total_g, total_s = 0, 0
-    min_ellapsed_time, max_ellapsed_time = 0, 1
+    min_ellapsed_time, max_ellapsed_time = 0, 2 * (a + b) * max(t)
     # 각 도시의 모든 자원을 옮겼을 때의 최대 시간을 구한다.
-    for i in range(len(g)):
-        _g, _s, _w, _t = g[i], s[i], w[i], t[i]
-        total_rsc = _g + _s
-        delivery_cnt = 2 * total_rsc // _w + (1 if total_rsc % _w else -1)
-        cur_ellapsed_time = delivery_cnt * _t
-        if max_ellapsed_time < cur_ellapsed_time:
-            max_ellapsed_time = cur_ellapsed_time
+    # for i in range(len(g)):
+    #     _g, _s, _w, _t = g[i], s[i], w[i], t[i]
+    #     total_rsc = _g + _s
+    #     delivery_cnt = 2 * total_rsc // _w + (1 if total_rsc % _w else -1)
+    #     cur_ellapsed_time = delivery_cnt * _t
+    #     if max_ellapsed_time < cur_ellapsed_time:
+    #         max_ellapsed_time = cur_ellapsed_time
             
     # 시간 계산법
     # 나눠 떨어짐 => 500 // 2 = 250, 500 % 2 = 0 => 2 * t *250 - t => (2 * 250 * - 1)t
