@@ -16,10 +16,10 @@ def solution(n, s):
     # return sorted(answer[:-1])
     
     answer = []
-    b = s%n # 9 3 = 0
-    a = s // n
-    for i in range(n-b):
-        answer.append(a)
-    for i in range(b):
-        answer.append(a+1)
+    count_greater_than_avg = s % n
+    avg = s // n
+    for i in range(n - count_greater_than_avg):
+        answer.append(avg)
+    for i in range(count_greater_than_avg):
+        answer.append(avg+1)
     return answer
