@@ -7,10 +7,19 @@ def solution(n, s):
     # 2, 9
     # 9 - 0 // n = 3, 9 - 3 // n = 3, 6 - 3 // n = 3 
     # 3, 3, 3
-    answer = [0] * (n + 1)
-    buffer = [s] * (n + 1)
-    for i in range(n - 1, -1, -1):
-        answer[i] = buffer[i + 1] // n
-        buffer[i] = buffer[i + 1] - answer[i]
-        n -= 1
-    return sorted(answer[:-1])
+    # answer = [0] * (n + 1)
+    # buffer = [s] * (n + 1)
+    # for i in range(n - 1, -1, -1):
+    #     answer[i] = buffer[i + 1] // n
+    #     buffer[i] = buffer[i + 1] - answer[i]
+    #     n -= 1
+    # return sorted(answer[:-1])
+    
+    answer = []
+    b = s%n # 9 3 = 0
+    a = s // n
+    for i in range(n-b):
+        answer.append(a)
+    for i in range(b):
+        answer.append(a+1)
+    return answer
