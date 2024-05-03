@@ -13,4 +13,18 @@ def solution(n):
     for i in range(4, n + 1):
         dp[i] = sum([dp[j] * dp[(i-1) - j] for j in range(0, i)])
     answer = dp[n]
+    
+    # DFS
+    def makeParentheses(_open, _close):
+        if _open == n:
+            return 1
+        if _open - _close < 0:
+            return 0
+        num = 0
+        num += makeParentheses(_open + 1, _close)
+        num += makeParentheses(_open, _close + 1)
+        return num
+    
+    answer = makeParentheses(0, 0)
+        
     return answer
