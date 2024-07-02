@@ -28,5 +28,12 @@ def solution():
             dp[i][j] = dp[i][j - 1] - dp[i - 1][j - 1]
         total[i] = sum(dp[i]) % MAGIC_NUMBER
     print(total[N])
+    
+    # 아래 코드는 위 코드와 결과값이 동일하다.
+    # dp = [1]*10
+    # for _ in range(1, N):
+    #     for j in range(1, 10):
+    #         dp[j] += dp[j-1]
+    # print(sum(dp) % MAGIC_NUMBER)
 if __name__=="__main__":
     solution() 
