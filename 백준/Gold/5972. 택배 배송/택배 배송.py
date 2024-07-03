@@ -12,7 +12,7 @@ def solution():
         graph[end].append((cow, start))
     
     Q = [(0, 1)]
-    dp = [float('inf')] * (N + 1)
+    dp = [1e9] * (N + 1)
     dp[1] = 0
     while Q:
         cow, node = heapq.heappop(Q)
