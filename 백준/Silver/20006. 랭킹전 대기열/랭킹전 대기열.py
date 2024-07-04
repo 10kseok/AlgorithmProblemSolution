@@ -20,11 +20,9 @@ def solution():
         if not available:
             rooms.append([player])
     
-    answer = []
     for room in rooms:
         room.sort(key=lambda x: x[1])
-        answer.append("Started!" if len(room) == m else "Waiting!")
-        answer.extend(list(map(lambda x:f'{x[0]} {x[1]}', room)))
-    print("\n".join(answer))
+        newline = '\n'
+        print(f'{"Started!" if len(room) == m else "Waiting!"}\n{newline.join(list(map(lambda x:f"{x[0]} {x[1]}", room)))}')
 if __name__=="__main__":
     solution() 
