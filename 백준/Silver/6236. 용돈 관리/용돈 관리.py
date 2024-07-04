@@ -20,7 +20,7 @@ def solution():
     N, M = map(int, input().split())
     costs_per_day = [int(input()) for _ in range(N)]
     
-    lower, upper = 0, N * 10_000 + 1
+    lower, upper = max(costs_per_day), sum(costs_per_day)
     while lower <= upper:
         mid = (lower + upper) // 2
         if count_withdraw(mid, costs_per_day) > M:
