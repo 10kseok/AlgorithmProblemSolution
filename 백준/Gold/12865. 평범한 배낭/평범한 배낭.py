@@ -8,8 +8,6 @@ for i in range(N):
     weight_value.append((W, V))
 weight_value.sort() 
 
-# v1
-# 2차원 배열로 모든 최적 조합을 기록하는 방식
 def knapsack(MAX_W, weight_value, n):
     dp = [[0 for _ in range(MAX_W + 1)] for _ in range(n + 1)]
 
@@ -23,9 +21,6 @@ def knapsack(MAX_W, weight_value, n):
                 dp[i][w] = dp[i - 1][w]
     return dp[n][MAX_W]
 
-# v2
-# 1차원 배열로 모든 최적 조합을 기록하는 방식
-# 이전 값이 기록되어있기에, 이전 값을 기준으로 덮어씌우면서 최적값을 수정해나간다.
 def knapsack_v2(MAX_W, weight_value, n):
     dp = [0 for _ in range(MAX_W + 1)]
 
@@ -38,11 +33,6 @@ def knapsack_v2(MAX_W, weight_value, n):
     
     return dp[MAX_W]
 
-
-# v3
-# 무게 제한이 W이면, 1 ~ W까지 각 무게별 최적값을 기록해왔다
-# -> 무게 조합이 나올 수 없는 경우도 탐색하기에 비효율적이였다.
-# --> 가능한 무게 조합만으로 최대 비용을 탐색하는 방법
 def knapsack_v3(MAX_W, weight_value):
     # value : weight
     max_value_bag = {0 : 0}
