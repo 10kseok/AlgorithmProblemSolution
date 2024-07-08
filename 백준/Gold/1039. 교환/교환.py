@@ -1,27 +1,25 @@
 import sys
-from collections import deque
+from itertools import combinations
 
 input = sys.stdin.readline
 
 def solution(N, K):
-    num_length, k = len(N), int(K)
-    swapped_nums_per_k = { i:set(['-1']) for i in range(1, k + 1) }
+    num_length = len(N)
+    if num_length == 1 or num_length == 2 and N[-1] == '0':
+        return -1
     
-    Q = deque([(N, 0)])
-    while Q:
-        num, cnt = Q.popleft()
-        if cnt == k:
-            break
-        for i in range(num_length):
-            for j in range(i + 1, num_length):
-                swapped = f'{num[:i]}{num[j]}{num[i + 1:j]}{num[i]}{num[j + 1:]}'
-                if i == 0 and num[i] != '0' and num[j] == '0':
-                    continue
-                if swapped not in swapped_nums_per_k[cnt + 1]:
-                    swapped_nums_per_k[cnt + 1].add(swapped)
-                    Q.append((swapped, cnt + 1))  
-                    
-    return max(swapped_nums_per_k[k])
+    buffer = [tuple(N)]
+    swap_combs = list(combinations(range(num_length), 2))
+    for _ in range(int(K)):
+        answer_set = set()
+        for num in buffer:
+            for i, j in swap_combs:
+                separated_num = list(num)
+                separated_num[i], separated_num[j] = separated_num[j], separated_num[i]
+                answer_set.add(tuple(separated_num))
+        buffer = list(answer_set)[:]
+    
+    return ''.join(max(answer_set))
 if __name__=="__main__":
     N, K = input().split()
     print(solution(N, K))
