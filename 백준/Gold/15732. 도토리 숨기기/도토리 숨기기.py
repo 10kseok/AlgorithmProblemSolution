@@ -40,7 +40,7 @@ def solution(n, k, d):
     
     # Binary Search
     rules = [tuple(map(int, input().split())) for _ in range(k)]
-    lower, upper = min(list(map(lambda x:x[0], rules))), max(list(map(lambda x:x[1], rules)))
+    lower, upper = min(list(map(lambda x:x[0], rules))), n
     
     while lower <= upper:
         mid = (lower + upper) // 2
