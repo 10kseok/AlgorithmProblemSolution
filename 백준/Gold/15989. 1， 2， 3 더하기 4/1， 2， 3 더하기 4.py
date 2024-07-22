@@ -3,7 +3,7 @@ from sys import stdin
 input = stdin.readline
 
 def solution(nums):    
-    MAX_NUM = max(nums) + 1
+    MAX_NUM = 10_000 + 1
     dp = [1 for _ in range(MAX_NUM)]
     for i in range(2, 4):
         for j in range(i, MAX_NUM):
