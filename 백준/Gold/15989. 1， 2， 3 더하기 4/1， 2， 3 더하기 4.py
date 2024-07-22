@@ -7,10 +7,10 @@ def solution(nums):
     dp = [1 for _ in range(MAX_NUM)]
     for i in range(2, 4):
         for j in range(i, MAX_NUM):
-            dp[j] = dp[j] + dp[j - i]
+            dp[j] += dp[j - i]
 
-    answer = [f'{dp[num]}' for num in nums]
-    print("\n".join(answer))
+    for num in nums:
+        print(dp[num])
     
 if __name__=="__main__":
     T = int(input())
