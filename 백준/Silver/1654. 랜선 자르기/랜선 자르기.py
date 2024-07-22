@@ -1,18 +1,22 @@
-import sys
-input = sys.stdin.readline
+from sys import stdin
 
-def solution():
-    K, N = map(int, input().split())
-    lans = [int(input()) for _ in range(K)]
-    min_length, max_length = 1, max(lans)
-    while min_length <= max_length:
-        cutting_length = (min_length + max_length) // 2
-        cnt = sum([lan // cutting_length for lan in lans])
-        if cnt < N:
-            max_length = cutting_length - 1
+input = stdin.readline
+
+def solution(N, lan_lines):    
+    lower, upper = 1, sum(lan_lines) // N
+    
+    while lower <= upper:
+        mid = (lower + upper) // 2
+        total = sum([lan // mid for lan in lan_lines])
+        
+        if total < N:
+            upper = mid - 1
         else:
-            min_length = cutting_length + 1
-    print(max_length)
+            lower = mid + 1
+    print(upper)
     
 if __name__=="__main__":
-    solution() 
+    K, N = map(int, input().split())
+    lan_lines = [int(input()) for _ in range(K)]
+    solution(N, lan_lines)
+    
