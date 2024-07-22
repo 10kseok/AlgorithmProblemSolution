@@ -2,17 +2,14 @@ from sys import stdin
 
 input = stdin.readline
 
-def solution(nums):
-    answer = []
-    
-    for num in nums:
-        INCLUDE_NUM = num + 1
-        dp = [1 for _ in range(INCLUDE_NUM)]
-        for i in range(2, 4):
-            for j in range(i, INCLUDE_NUM):
-                dp[j] = dp[j] + dp[j - i]
-        answer.append(f'{dp[num]}')
-    
+def solution(nums):    
+    MAX_NUM = max(nums) + 1
+    dp = [1 for _ in range(MAX_NUM)]
+    for i in range(2, 4):
+        for j in range(i, MAX_NUM):
+            dp[j] = dp[j] + dp[j - i]
+
+    answer = [f'{dp[num]}' for num in nums]
     print("\n".join(answer))
     
 if __name__=="__main__":
