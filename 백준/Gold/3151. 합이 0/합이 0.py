@@ -5,6 +5,7 @@ input = stdin.readline
 def solution(N, students):    
     counter = [0] * 40_001
     answer = 0
+    students.sort()
     for i in range(N):
         answer += counter[20_000 - students[i]]
         for j in range(i):
