@@ -1,31 +1,32 @@
-import sys
+from sys import stdin
 
-input = sys.stdin.readline
+input = stdin.readline
 
-def dfs(next, start, visit, numbers, answer):
-    if not visit[numbers[next]]:
-        visit[numbers[next]] = True
-        dfs(numbers[next], start, visit, numbers, answer)
-        visit[numbers[next]] = False
-    
-    if numbers[next] == start:
-        answer.append(start)
-    
-def solution():
-    N = int(input())
-    numbers = [i for i in range(N + 1)]
-    visit = [False] * (N + 1)
+def solution(N, nums):    
+    visited = [False] * (N + 1)
     answer = []
+    def dfs(i, path):
+        if visited[i]:
+            return
+        visited[i] = True
+        path.append(i)
+        if visited[nums[i]] and path[0] == nums[i]:
+            answer.extend(path)
+            return
+        dfs(nums[i], path)
+        if i not in answer:
+            visited[i] = False
+            
     for i in range(1, N + 1):
-        numbers[i] =  int(input())
-    for i in range(1, N + 1):
-        visit[i] = True
-        dfs(i, i, visit, numbers, answer)
-        visit[i] = False
+        dfs(i, [])
     
     answer.sort()
     print(len(answer))
-    print(*answer, sep="\n")
+    for ans in answer:
+        print(ans)
     
 if __name__=="__main__":
-    solution() 
+    N = int(input())
+    nums = [0] + [int(input()) for _ in range(N)]
+    solution(N, nums)
+
