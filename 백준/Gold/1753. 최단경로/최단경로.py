@@ -16,6 +16,8 @@ def solution(v, e, k):
     Q = [(0, k)]
     while Q:
         w, cur = heappop(Q)
+        if dp[cur] < w:
+            continue
         # next weight, next vertex
         for n_w, n_v in graph[cur]:
             if dp[n_v] > w + n_w:
