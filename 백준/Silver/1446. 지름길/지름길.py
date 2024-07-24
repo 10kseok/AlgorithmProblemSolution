@@ -27,13 +27,12 @@ def solution(n, d):
     
     # Use just table, retrieve all shortcut
     shortcuts = [[] for _ in range(d + 1)]
-    dp = [i for i in range(d + 1)]
-    dp[0] = 0
     for _ in range(n):
         s, e, distance = map(int, input().split())
         if s < d and e <= d:
             shortcuts[s].append((e, distance))
     
+    dp = [i for i in range(d + 1)]
     for i in range(d + 1):
         dp[i] = min(dp[i], dp[i - 1] + 1)
         for e, distance in shortcuts[i]:
