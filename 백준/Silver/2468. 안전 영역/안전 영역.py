@@ -4,9 +4,10 @@ input = stdin.readline
 setrecursionlimit(10**8)
 
 def solution(n, region):    
+    DIRECTIONS = (-1, 0), (1, 0), (0, 1), (0, -1)
     def dfs(i, j, precipitation):
         visited[i][j] = True
-        for di, dj in (-1, 0), (1, 0), (0, 1), (0, -1):
+        for di, dj in DIRECTIONS:
             ni, nj = i + di, j + dj
             if 0 > ni or ni >= n or 0 > nj or nj >= n \
                 or visited[ni][nj] or region[ni][nj] <= precipitation:
@@ -15,7 +16,8 @@ def solution(n, region):
         
     max_region_cnt = 1
     max_height = max(map(max, region))
-    for i in range(1, max_height):
+    average = sum(map(sum, region)) // n**2
+    for i in range(average, max_height):
         visited = [[False] * n for _ in range(n)]
         region_cnt = 0
         for j in range(n):
