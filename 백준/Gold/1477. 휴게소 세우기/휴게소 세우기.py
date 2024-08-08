@@ -9,7 +9,7 @@ def solution(n, m, l):
     
     lower, upper = 1, l - 1
     while lower <= upper:
-        gap = (lower + upper) // 2
+        gap = (lower + upper) >> 1
         cnt = 0
         for i in range(1, n):
             cnt += (rests[i] - rests[i - 1] - 1) // gap # 이미 있는 위치에 설치하지 않게 하려고 -1
