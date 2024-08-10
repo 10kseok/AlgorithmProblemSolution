@@ -3,17 +3,12 @@ from sys import stdin
 input = stdin.readline
 
 def is_asymmetry(pattern):
-    if not pattern:
-        return True
     length = len(pattern)
+    if length == 1:
+        return True
     mid = length // 2
-    for i in range(mid):
-        if pattern[i] == pattern[length - i - 1]:
-            return False
-    
-    return is_asymmetry(pattern[:mid]) and is_asymmetry(pattern[mid + 1:])
-    
-
+    return is_asymmetry(pattern[:mid]) and all(pattern[i] != pattern[length - i - 1] for i in range(mid))
+        
 def solution(t):
     answer = []
     for _ in range(t):
