@@ -1,33 +1,27 @@
-import sys
-input = sys.stdin.readline
+from sys import stdin
 
-def solution():
-    global available, paper
-    T = int(input())
+input = stdin.readline
+
+def is_asymmetry(pattern):
+    if not pattern:
+        return True
+    length = len(pattern)
+    mid = length // 2
+    for i in range(mid):
+        if pattern[i] == pattern[length - i - 1]:
+            return False
     
-    def fold(left, right):
-        global available, paper
-        if (not available or left > right):
-            return
-        
-        mid = (left + right) // 2
-        _left, _right = mid - 1, mid + 1
-        
-        while (_left >= left and _right <= right):
-            if paper[_left] == paper[_right]:
-                available = False
-                return
-            _left -= 1
-            _right += 1
-            
-        fold(left, mid - 1)
-        fold(mid + 1, right)
-        
-    for _ in range(T):
-        available = True
-        paper = input()
-        fold(0, len(paper) - 1)
-        print("YES" if available else "NO")
+    return is_asymmetry(pattern[:mid]) and is_asymmetry(pattern[mid + 1:])
     
+
+def solution(t):
+    answer = []
+    for _ in range(t):
+        pattern = input().rstrip()
+        answer.append("YES" if is_asymmetry(pattern) else "NO")
+                    
+    print('\n'.join(answer))
+
 if __name__=="__main__":
-    solution() 
+    T = int(input())
+    solution(T)

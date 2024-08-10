@@ -8,11 +8,11 @@
 
 ### 분류
 
-애드 혹, 분할 정복
+분할 정복
 
 ### 제출 일자
 
-2024년 3월 21일 14:13:44
+2024년 8월 10일 17:11:58
 
 ### 문제 설명
 
@@ -25,17 +25,17 @@
 
 <p>아래의 그림은 위의 설명을 그림으로 옮긴 것이다.</p>
 
-<p><img alt="" src="" style="height:440px; width:308px"></p>
+<p><img alt="" src="https://www.acmicpc.net/JudgeOnline/upload/201006/pfold.png" style="height:440px; width:308px"></p>
 
 <p>한 번의 종이 접기가 끝났을 때, 동호는 종이 접기를 원하는 만큼 더 할 수 있다. 종이 접기를 한번 접을 때 마다 두께는 2배가 되고 길이는 절반이 될 것이다.</p>
 
-<p><img alt="" src="" style="height:312px; width:338px"></p>
+<p><img alt="" src="https://www.acmicpc.net/JudgeOnline/upload/201006/pfoldd.png" style="height:312px; width:338px"></p>
 
 <p>종이 접기를 여러 번 했을 때 (안접을 수도 있다), 동호는 종이를 다시 피기로 했다. 그러고 나서 다시 접고 이렇게 놀고 있었다. 옆에서 보고 있던 원룡이는 동호를 위해 종이를 접어서 주기로 했다.(원룡이는 동호의 규칙대로 접지 않는다.) 동호는 그리고 나서 원룡이가 접었다 핀 종이를 다시 동호의 규칙대로 접을 수 있는지 궁금해졌다.</p>
 
 <p>위의 저 종이를 접었다 피면 다음과 같은 그림처럼 펴진다.</p>
 
-<p><img alt="" src="" style="height:186px; width:274px"></p>
+<p><img alt="" src="https://www.acmicpc.net/JudgeOnline/upload/201006/pfofo.png" style="height:186px; width:274px"></p>
 
 <p>종이가 시계방향으로 꺽여있으면 OUT이고, 반시계방향으로 꺾여있으면 IN이다.</p>
 
