@@ -1,6 +1,12 @@
 class Solution {
     public long solution(int n, int[] times) {
-        long lower = 1, upper = Long.MAX_VALUE / 100;
+        int min = Integer.MAX_VALUE;
+        for (int t : times) {
+            if (t < min)
+                min = t;
+        }
+
+        long lower = 1, upper = (long) min * n;
         while (lower <= upper) {
             long mid = (lower + upper) / 2;
             long _n = 0;
