@@ -21,8 +21,11 @@ def solution(n, m):
         results.extend(list(product(nums, repeat=m)))
         
     choose(nums, m, [])
-    for rst in results:
-        print(*rst, sep=" ")
+    
+    # for rst in results:
+    #     print(*rst, sep=" ")
+    # For a lot of outputs
+    print("\n".join(" ".join(map(str, result)) for result in results))
 
 if __name__=="__main__":
     N, M = map(int, input().split())
