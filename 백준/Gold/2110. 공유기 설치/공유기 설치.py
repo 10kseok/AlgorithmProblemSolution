@@ -12,14 +12,16 @@ def solution(n, m):
         # -> 간격은 공유기와 공유기 간에 간격이기 때문
         slow, fast = 0, 1
         cnt = 1
-        while slow < n and fast < n and cnt < m:
+        while slow < n and fast < n:
             if homes[fast] - homes[slow] < min_distance:
                 fast += 1
                 continue
             cnt += 1
             slow = fast
             fast = slow + 1
-        return cnt >= m
+            if cnt == m:
+                return True
+        return False
       
     # lower = 작은 쪽이 항상 조건을 만족하는 쪽
     lower, upper = 1, (homes[-1] - homes[0]) // (m - 1) + 1
