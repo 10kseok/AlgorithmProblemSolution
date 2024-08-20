@@ -22,7 +22,7 @@ def solution(n, m):
         return cnt >= m
       
     # lower = 작은 쪽이 항상 조건을 만족하는 쪽
-    lower, upper = 1, homes[-1] - homes[0]
+    lower, upper = 1, (homes[-1] - homes[0]) // (m - 1) + 1
     while lower <= upper:
         mid = (lower + upper) >> 1
         if is_available(mid):
