@@ -10,15 +10,13 @@ def solution(n, m):
         # 맨 앞에는 항상 공유기는 설치
         # -> 맨 앞에 공유기가 없으면 젤 첫번째 공유기 설치시 앞에 간격을 구할 수가 없다
         # -> 간격은 공유기와 공유기 간에 간격이기 때문
-        slow, fast = 0, 1
-        cnt = 1
+        slow, fast, cnt = 0, 1, 1
         while slow < n and fast < n:
             if homes[fast] - homes[slow] < min_distance:
                 fast += 1
                 continue
             cnt += 1
-            slow = fast
-            fast = slow + 1
+            slow, fast = fast, fast + 1
             if cnt == m:
                 return True
         return False
