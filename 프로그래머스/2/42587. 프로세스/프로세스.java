@@ -5,21 +5,18 @@ class Solution {
         PriorityQueue<Integer> pQ = new PriorityQueue(Collections.reverseOrder());
         for (int prt: priorities)
             pQ.offer(prt);
-        int[] locations = new int[priorities.length];
-        Arrays.fill(locations, -1);
     
         int idx = 1;
         while (idx <= priorities.length) {
             for (int i = 0; i < priorities.length; i++) {
-                if (priorities[i] == pQ.peek() && locations[i] == -1) {
+                if (priorities[i] == pQ.peek()) {
+                    if (i == location)
+                        return idx;
                     pQ.poll();
-                    locations[i] = idx;
                     idx++;
-                    if (idx > priorities.length)
-                        break;
                 }
             }   
         }
-        return locations[location];
+        throw new RuntimeException("UNEXPECTED INPUTS");
     }
 }
