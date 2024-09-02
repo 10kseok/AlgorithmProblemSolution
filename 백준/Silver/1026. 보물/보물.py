@@ -3,7 +3,8 @@ from sys import stdin
 input = stdin.readline
         
 def solution(n, a, b):
-    a, b = sorted(a), sorted(b, reverse=True)
+    a.sort()
+    b.sort(reverse=True)
     print(sum([a[i] * b[i] for i in range(n)]))
         
 if __name__=="__main__":
