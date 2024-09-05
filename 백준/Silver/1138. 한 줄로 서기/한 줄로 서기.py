@@ -22,11 +22,10 @@ def solution(n):
     answer = [11] * (n + 1)
     
     for i in range(1, n + 1):
-        order = smaller_cnts[i]
         temp_cnt = 0
         for j in range(1, n + 1):
             if i < answer[j]:
-                if temp_cnt == order:
+                if temp_cnt == smaller_cnts[i]:
                     answer[j] = i
                     break
                 temp_cnt += 1
