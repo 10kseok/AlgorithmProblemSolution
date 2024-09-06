@@ -1,5 +1,6 @@
-import sys
-input = sys.stdin.readline
+from sys import stdin, setrecursionlimit
+input = stdin.readline
+setrecursionlimit(10**8)
 
 def solution():
     global longest_node, max_length
