@@ -2,8 +2,8 @@ import java.util.*;
 
 class Solution {
     private static int[] profits;
-    private static Map<String, Integer> nameToIdxMap;
     private static String[] referral;
+    private static Map<String, Integer> nameToIdxMap;
     
     public int[] solution(String[] enroll, String[] referral, String[] seller, int[] amount) {
         Solution.profits = new int[enroll.length];
