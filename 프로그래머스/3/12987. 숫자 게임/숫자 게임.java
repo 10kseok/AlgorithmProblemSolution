@@ -5,14 +5,11 @@ class Solution {
         int answer = 0;
         Arrays.sort(A); Arrays.sort(B);
         
-        // 1 3 5 7
-        // 2 2 6 8
         int n = A.length;
-        for (int i = 0, lastBiggestIdx = 0; i < n && lastBiggestIdx < n; i++) {
-            if (A[i] >= B[lastBiggestIdx++]) {
-                i--;
-            } else {
+        for (int i = n - 1, lastBiggestIdx = n - 1; i >= 0; i--) {
+            if (A[i] < B[lastBiggestIdx]) {
                 answer++;
+                lastBiggestIdx--;
             }
         }
         return answer;
