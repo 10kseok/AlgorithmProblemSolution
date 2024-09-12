@@ -8,13 +8,11 @@ class Solution {
         // 1 3 5 7
         // 2 2 6 8
         int n = A.length;
-        int lastBiggestIdx = 0;
-        for (int i = 0; i < n; i++) {
-            while (lastBiggestIdx < n && A[i] >= B[lastBiggestIdx])
-                lastBiggestIdx++;
-            if (lastBiggestIdx < n && A[i] < B[lastBiggestIdx]) {
+        for (int i = 0, lastBiggestIdx = 0; i < n && lastBiggestIdx < n; i++) {
+            if (A[i] >= B[lastBiggestIdx++]) {
+                i--;
+            } else {
                 answer++;
-                lastBiggestIdx++;
             }
         }
         return answer;
