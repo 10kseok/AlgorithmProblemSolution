@@ -26,13 +26,23 @@ def solution(n):
         return True
     
     edges, total_cost = 0, 0
-    heapify(graph)
-    while edges < n - 1:
-        cost, u, v = heappop(graph)
+    # use Heap
+    # heapify(graph)
+    # while edges < n - 1:
+    #     cost, u, v = heappop(graph)
+    #     if union(u, v):
+    #         total_cost += cost
+    #         edges += 1  
+    
+    # use Sort
+    graph.sort()
+    for i in range(len(graph)):
+        cost, u, v = graph[i]
         if union(u, v):
             total_cost += cost
             edges += 1        
-    
+            if edges == n - 1:
+                break
     print(total_cost)
 
 if __name__=="__main__":
