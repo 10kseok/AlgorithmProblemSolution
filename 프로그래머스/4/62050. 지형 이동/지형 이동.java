@@ -14,7 +14,8 @@ class Solution {
         Solution.land = land;
         
         int answer = Integer.MAX_VALUE;
-        answer = traverseForMinimum(0, 0);
+        // answer = traverseForMinimum(0, 0);
+        answer = traverseForMinimumV2(0, 0);
         return answer;
     }
     
@@ -38,6 +39,37 @@ class Solution {
                 diff = Math.abs(land[nr][nc] - land[row][col]);
                 pq.offer(new int[] { diff, nr, nc});
             }
+        }
+        return count;
+    }
+    
+    // use Two Queue
+    private static int traverseForMinimumV2(int i, int j) {
+        boolean[][] visited = new boolean[n][n];
+        Queue<int[]> routeQ = new LinkedList<>();
+        PriorityQueue<int[]> ladderQ = new PriorityQueue<>((e1, e2) -> Integer.compare(e1[0], e2[0]));
+        routeQ.offer(new int[] {0, i, j});
+        int count = 0;
+        while (!routeQ.isEmpty()) {
+            int[] cur = routeQ.poll();
+            int diff = cur[0], row = cur[1], col = cur[2];
+            if (!visited[row][col]) {
+                visited[row][col] = true;
+                count += diff;
+                for (int k = 0; k < 4; k++) {
+                    int nr = row + dr[k], nc = col + dc[k];
+                    if (0 > nr || nr >= n || 0 > nc || nc >= n || visited[nr][nc])
+                        continue;
+                    diff = Math.abs(land[nr][nc] - land[row][col]);
+                    if (diff > height) {
+                        ladderQ.offer(new int[] { diff, nr, nc});    
+                    } else {
+                        routeQ.offer(new int[] { 0, nr, nc});
+                    }
+                }
+            }
+            if (routeQ.isEmpty() && !ladderQ.isEmpty())
+                routeQ.offer(ladderQ.poll());
         }
         return count;
     }
