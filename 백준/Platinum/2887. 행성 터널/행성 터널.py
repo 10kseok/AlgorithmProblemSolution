@@ -3,20 +3,15 @@ from heapq import heapify, heappop
 input = stdin.readline
 
 def solution(n):
-    planets = [list(map(int, input().split())) for _ in range(n)]
-    x_list = { idx : x for idx, (x, _, _) in enumerate(planets) }
-    y_list = { idx : y for idx, (_, y, _) in enumerate(planets) }
-    z_list = { idx : z for idx, (_, _, z) in enumerate(planets) }
-    position_list = [x_list, y_list, z_list]
+    planets = [list(map(int, input().split())) + [i] for i in range(n)]
     graph = []
-
-    for pos_list in position_list:
-        sorted_pos = sorted(pos_list.items(), key=lambda x:x[1])
+    for dim in range(3): # x : 0, y : 1, z : 2, idx : 3
+        sorted_pos_by_dimension = sorted(planets, key=lambda x:x[dim])
         for i in range(1, n):
-            prev, cur = sorted_pos[i - 1][0], sorted_pos[i][0]
-            graph.append((abs(pos_list[cur] - pos_list[prev]), prev, cur))
+            prev, cur = sorted_pos_by_dimension[i - 1][3], sorted_pos_by_dimension[i][3]
+            graph.append((abs(sorted_pos_by_dimension[i][dim] - sorted_pos_by_dimension[i - 1][dim]), prev, cur))
     
-    parents = [i for i in range(n)]
+    parents = list(range(n))
     def find(x):
         if parents[x] == x:
             return x
