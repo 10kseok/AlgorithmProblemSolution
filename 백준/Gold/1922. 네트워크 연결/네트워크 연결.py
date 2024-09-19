@@ -5,7 +5,7 @@ input = stdin.readline
 def solution(n, m):
     parents = [i for i in range(n + 1)]
     graph = [list(map(int, input().split())) for _ in range(m)]
-    graph.sort(key=lambda x: x[2])
+    graph.sort(key=lambda x: x[2], reverse=True)
     
     def find(x):
         if parents[x] == x:
@@ -19,7 +19,7 @@ def solution(n, m):
     # Use Kruskal algorithm
     total_cost, edges = 0, 0
     while edges < n - 1:
-        u, v, cost = graph.pop(0)
+        u, v, cost = graph.pop()
         if u == v:
             continue
         parent_u, parent_v = find(u), find(v)
