@@ -10,27 +10,44 @@ def solution(n, p, k):
         cables[c1].append((c2, cost))
         cables[c2].append((c1, cost))
     
-    def can_connect_by(max_cost):
+    # def can_connect_by(max_cost):
+    #     exceed_count = [k + 1] * (n + 1)
+    #     exceed_count[1] = 0
+    #     queue = [(0, 1)] # cost, number
+    #     while queue:
+    #         c, computer = heappop(queue)
+    #         for next_com, next_cost in cables[computer]:
+    #             cur_exceed_count = exceed_count[computer]
+    #             if next_cost > max_cost:
+    #                 cur_exceed_count += 1
+    #             if cur_exceed_count < exceed_count[next_com]:
+    #                 exceed_count[next_com] = cur_exceed_count
+    #                 heappush(queue, (c + next_cost, next_com))
+    #     return exceed_count[n] <= k
+    
+    def can_connect_by_v2(max_cost):
         exceed_count = [k + 1] * (n + 1)
         exceed_count[1] = 0
         queue = [(0, 1)] # cost, number
         while queue:
-            c, computer = heappop(queue)
+            count, computer = heappop(queue)
+            if exceed_count[computer] < count:
+                continue
+            
             for next_com, next_cost in cables[computer]:
                 cur_exceed_count = exceed_count[computer]
                 if next_cost > max_cost:
                     cur_exceed_count += 1
                 if cur_exceed_count < exceed_count[next_com]:
                     exceed_count[next_com] = cur_exceed_count
-                    heappush(queue, (c + next_cost, next_com))
-                
+                    heappush(queue, (cur_exceed_count, next_com))
         return exceed_count[n] <= k
     
     lower, upper = 0, 1_000_000
     answer = -1
     while lower <= upper:
         mid = (lower + upper) >> 1
-        if can_connect_by(mid):
+        if can_connect_by_v2(mid):
             answer = mid
             upper = mid - 1
         else:
