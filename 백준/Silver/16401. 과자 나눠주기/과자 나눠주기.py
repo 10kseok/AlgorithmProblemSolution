@@ -12,7 +12,7 @@ def solution(m, n):
             cnt += snack // snack_length
         return cnt >= m
     
-    lower, upper = 1, 1_000_000_000
+    lower, upper = 1, max(snacks)
     answer = 0
     while lower <= upper:
         mid = (lower + upper) >> 1
