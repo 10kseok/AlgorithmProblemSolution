@@ -9,7 +9,7 @@ def solution(n, k):
     def count_latter_nums(num):
         return sum(min(n, num // i) for i in range(1, n + 1))
 
-    lower, upper = 1, n * n
+    lower, upper = 1, k
     while lower <= upper:
         num = (lower + upper) >> 1
         if count_latter_nums(num) >= k:
