@@ -10,7 +10,7 @@ def solution(arr):
         else:
             raise Exception("부호에 해당하는 문자가 아닙니다 : " + sign)
             
-    dp = [[[float('inf'), -float('inf')] for _ in range(n + 1)] for _ in range(n + 1)]
+    dp = [[[2_123_456_789, -2_123_456_789] for _ in range(n + 1)] for _ in range(n + 1)]
 
     MIN, MAX = 0, 1
     for i in range(1, n + 1):
@@ -28,5 +28,4 @@ def solution(arr):
                 dp[i][j][MIN] = min(dp[i][j][MIN], min(buffer))
                 dp[i][j][MAX] = max(dp[i][j][MAX], max(buffer))
                 
-    return dp[1][n][MAX]
-    
+    return dp[1][n][MAX]    
