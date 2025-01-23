@@ -20,8 +20,9 @@ def solution(lines):
         return get_time_milis(s) - t_miliseconds + 1
     
     max_throughput = 0
-    
+    MAX_T = 3000
     lines_s_t_only = [line.split()[1:] for line in lines]
+    
     for i in range(len(lines_s_t_only)):
         s, t = lines_s_t_only[i]
         end_time_milis = get_time_milis(s) + 999
@@ -30,6 +31,8 @@ def solution(lines):
             next_s, next_t = lines_s_t_only[j]
             if get_start_time_milis(next_s, next_t) <= end_time_milis:
                 throughput += 1
+            elif get_time_milis(next_s) - end_time_milis > 3000:
+                break
         if max_throughput < throughput:
             max_throughput = throughput
         
