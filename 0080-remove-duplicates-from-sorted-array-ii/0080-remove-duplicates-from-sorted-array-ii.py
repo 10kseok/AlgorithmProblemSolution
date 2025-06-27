@@ -68,8 +68,10 @@ class Solution:
         # 3. 그러니 중복이 2개가 되지 않는다면 뒤에 숫자를 앞으로 당겨온다.
         # 4. (i < n) nums[i - 2] != nums[i] = 중복 2개 아님을 보장
         n = len(nums)
-        k = 2
+        if n < 3:
+            return n
 
+        k = 2
         for i in range(2, n):
             if nums[i] != nums[k - 2]:
                 nums[k] = nums[i]
