@@ -18,24 +18,35 @@ class Solution:
 
         # 예시
         # [1 2 3] k = 3
-        # [3 1 2] 1
+        # [3 1 2] 1 -> (0, 1) (1, 2) (2, 3)
         # [2 3 1] 2
         # [1 2 3] 3
 
         # 풀이 1
-        # 각 요소별 k번 이동 후 인덱스를 구한다
+        # 각 요소별 k번 이동 후의 인덱스를 구한다
         # n 이상이면 모듈러 연산 진행
         # 구한 인덱스를 통해 새로운 배열에 알맞게 채워넣는다.
+        # n = len(nums)
+        # k = k % n
+
+        # shifted_indexes = [(i + k) % n for i in range(n)]
+        # shifted_array = [0] * n
+
+        # for i in range(n):
+        #     shifted_array[shifted_indexes[i]] = nums[i]
+        # for i in range(n):
+        #     nums[i] = shifted_array[i]
+
+        # 풀이 2
+        # 1. 마지막 원소를 추출하여 맨 앞에 넣는다.
+        # 2. 1번을 k번 반복한다.
         n = len(nums)
         k = k % n
+        for i in range(k):
+            nums.insert(0, nums.pop())
+        
+        
 
-        shifted_indexes = [(i + k) % n for i in range(n)]
-        shifted_array = [0] * n
-
-        for i in range(n):
-            shifted_array[shifted_indexes[i]] = nums[i]
-        for i in range(n):
-            nums[i] = shifted_array[i]
         
 
 
