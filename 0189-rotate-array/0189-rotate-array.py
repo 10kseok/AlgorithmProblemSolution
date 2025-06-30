@@ -40,12 +40,17 @@ class Solution:
         # 풀이 2
         # 1. 마지막 원소를 추출하여 맨 앞에 넣는다.
         # 2. 1번을 k번 반복한다.
+        # n = len(nums)
+        # k = k % n
+        # for i in range(k):
+        #     nums.insert(0, nums.pop())
+        
+        # 풀이 3
+        # 1. k번 이동시 좌우 규칙 반전 발생
+        # 2. 수식 0~(n-k), (n-k)~n => (n-k)~n, 0~(n-k)
         n = len(nums)
-        k = k % n
-        for i in range(k):
-            nums.insert(0, nums.pop())
-        
-        
+        k %= n
+        nums[:] = nums[n-k:n] + nums[:n-k]
 
         
 
