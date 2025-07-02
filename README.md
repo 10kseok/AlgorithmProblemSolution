@@ -6,6 +6,7 @@
 |  |
 | ------- |
 | [0080-remove-duplicates-from-sorted-array-ii](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0080-remove-duplicates-from-sorted-array-ii) |
+| [0121-best-time-to-buy-and-sell-stock](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0121-best-time-to-buy-and-sell-stock) |
 | [0169-majority-element](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0169-majority-element) |
 | [0189-rotate-array](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0189-rotate-array) |
 ## Hash Table
@@ -33,4 +34,8 @@
 |  |
 | ------- |
 | [0189-rotate-array](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0189-rotate-array) |
+## Dynamic Programming
+|  |
+| ------- |
+| [0121-best-time-to-buy-and-sell-stock](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0121-best-time-to-buy-and-sell-stock) |
 <!---LeetCode Topics End-->
