@@ -45,7 +45,7 @@ class Solution:
         # 2. 전부 탐색해서 매 탐색마다 최소값을 항상 찾는다.
         # 3. 탐색한 최소값과 현재 탐색하고 있는 주식의 가격을 비교해서 수익을 구한다.
         # 4. 구한 수익을 최대 수익과 비교하여 갱신한다.
-        min_value = 10 ** 4 + 1
+        min_value = prices[0]
         max_profit = 0
         n = len(prices)
         for i in range(n):
