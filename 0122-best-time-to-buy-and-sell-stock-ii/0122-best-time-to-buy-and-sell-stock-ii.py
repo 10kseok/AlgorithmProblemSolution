@@ -30,13 +30,25 @@ class Solution:
         # 1. 1, 2 -> 1
         # 2. 2, 3 -> 1
         # ...
-        max_profit = 0
+        # max_profit = 0
+        # n = len(prices)
+        # if n == 1:
+        #     return 0
+        # for i in range(1, n):
+        #     if prices[i - 1] < prices[i]:
+        #         max_profit += prices[i] - prices[i - 1]
+
+        # return max_profit
+
+        # if not prices:
+        # return 0
+
+        # 풀이 2 (DP)
         n = len(prices)
-        if n == 1:
-            return 0
+        hold = -prices[0]
+        sell = 0
         for i in range(1, n):
-            if prices[i - 1] < prices[i]:
-                max_profit += prices[i] - prices[i - 1]
-
-        return max_profit
-
+            prev_hold = hold
+            hold = max(hold, sell - prices[i])
+            sell = max(sell, prev_hold + prices[i])
+        return sell
