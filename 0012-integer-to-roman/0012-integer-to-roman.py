@@ -36,7 +36,6 @@ class Solution:
                 five_count = int(num >= 5)
                 one_count = num % 5
                 roman_numeral = SYMBOLS[i][FIVE] * five_count + SYMBOLS[i][ONE] * one_count + roman_numeral
-            print(roman_numeral)
 
         return roman_numeral
 
