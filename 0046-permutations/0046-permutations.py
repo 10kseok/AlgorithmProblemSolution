@@ -11,20 +11,45 @@ class Solution:
         # 2. 순서에 따라 다른 경우로 취급
         # 3. 숫자가 적어서 O(n^2)도 가능
 
-        # 풀이
+        # 풀이 1
         # 1. 자신을 제외한 모든 숫자로 최대 갯수(모두 사용)를 채울 때까지 경우의 수 조합
         # 2. 모든 숫자를 대상으로 1번을 진행
         # 3. 모두 사용시 정답 리스트에 추가
 
+        # n = len(nums)
+        # answer = []
+        # def _permute(nums: list[int], buffer: list[int]):
+        #     if len(buffer) == n:
+        #         answer.append(buffer)
+        #     for i in range(len(nums)):
+        #         buffer.append(nums[i])
+        #         _permute(nums[:i] + nums[i+1:], buffer[:])
+        #         buffer.pop()
+
+        # _permute(nums, [])
+        # return answer
+
+        # 풀이 2
+        # 1. 풀이 1과 동일하지만 n이 커지면 리스트 슬라이싱과 복사 비용 감소
         n = len(nums)
+        used = [False] * n
         answer = []
-        def _permute(nums: list[int], buffer: list[int]):
+
+        def _permute(buffer: list[int]):
             if len(buffer) == n:
-                answer.append(buffer)
+                answer.append(buffer[:])
+                return
+
             for i in range(len(nums)):
-                buffer.append(nums[i])
-                _permute(nums[:i] + nums[i+1:], buffer[:])
-                buffer.pop()
-                
-        _permute(nums, [])
+                if not used[i]:
+                    buffer.append(nums[i])
+                    used[i] = True
+                    _permute(buffer)
+                    used[i] = False
+                    buffer.pop()
+
+        _permute([])
+
         return answer
+
+                
