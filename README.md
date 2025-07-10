@@ -5,6 +5,7 @@
 ## Array
 |  |
 | ------- |
+| [0046-permutations](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0046-permutations) |
 | [0055-jump-game](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0055-jump-game) |
 | [0064-minimum-path-sum](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0064-minimum-path-sum) |
 | [0080-remove-duplicates-from-sorted-array-ii](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0080-remove-duplicates-from-sorted-array-ii) |
@@ -65,4 +66,8 @@
 |  |
 | ------- |
 | [0064-minimum-path-sum](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0064-minimum-path-sum) |
+## Backtracking
+|  |
+| ------- |
+| [0046-permutations](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0046-permutations) |
 <!---LeetCode Topics End-->
