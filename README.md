@@ -70,4 +70,20 @@
 |  |
 | ------- |
 | [0046-permutations](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0046-permutations) |
+## Tree
+|  |
+| ------- |
+| [0230-kth-smallest-element-in-a-bst](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0230-kth-smallest-element-in-a-bst) |
+## Depth-First Search
+|  |
+| ------- |
+| [0230-kth-smallest-element-in-a-bst](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0230-kth-smallest-element-in-a-bst) |
+## Binary Search Tree
+|  |
+| ------- |
+| [0230-kth-smallest-element-in-a-bst](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0230-kth-smallest-element-in-a-bst) |
+## Binary Tree
+|  |
+| ------- |
+| [0230-kth-smallest-element-in-a-bst](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0230-kth-smallest-element-in-a-bst) |
 <!---LeetCode Topics End-->
