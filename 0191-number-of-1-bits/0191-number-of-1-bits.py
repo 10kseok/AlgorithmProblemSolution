@@ -16,12 +16,12 @@ class Solution:
         
         # 풀이 1
         # 1. 정수 타입에서 제공하는 해밍 웨이트 지원 메서드 사용
-        return n.bit_count()
+        # return n.bit_count()
 
         # 풀이 2
         # 1. 비트 연산자를 이용한 방법
-        # count = 0
-        # while count < n:
-        #     n &= n - 1
-        #     count += 1
-        # return count 
+        count = 0
+        while count < n:
+            n &= n - 1
+            count += 1
+        return count 
