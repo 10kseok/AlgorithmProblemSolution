@@ -23,6 +23,7 @@
 |  |
 | ------- |
 | [0169-majority-element](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0169-majority-element) |
+| [0191-number-of-1-bits](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0191-number-of-1-bits) |
 ## Sorting
 |  |
 | ------- |
@@ -86,4 +87,8 @@
 |  |
 | ------- |
 | [0230-kth-smallest-element-in-a-bst](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0230-kth-smallest-element-in-a-bst) |
+## Bit Manipulation
+|  |
+| ------- |
+| [0191-number-of-1-bits](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0191-number-of-1-bits) |
 <!---LeetCode Topics End-->
