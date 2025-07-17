@@ -17,30 +17,48 @@ class Solution:
         # 2. 괄호 조합에서 스택을 활용하여 짝이 제대로 맞는지 확인
         # 3. 짝이 제대로된 괄호 조합만 추출해서 정답 배열에 추가
 
-        if n == 1:
-            return ["()"]
+        # if n == 1:
+        #     return ["()"]
         
-        parentheses: list[str] = []
+        # parentheses: list[str] = []
 
-        def generate(buffer: str):
-            if len(buffer) == n * 2:
-                parentheses.append(buffer)
-                return 
+        # def generate(buffer: str):
+        #     if len(buffer) == n * 2:
+        #         parentheses.append(buffer)
+        #         return 
             
-            for l in ('(', ')'):
-                generate(buffer + l)
+        #     for l in ('(', ')'):
+        #         generate(buffer + l)
 
-        generate('(')
+        # generate('(')
         
-        answer: list[str] = []
-        for prnths in parentheses:
-            is_well_formed = True
-            balance = 0
-            for p in prnths:
-                balance += 1 if p == '(' else -1
-                if balance < 0 or balance > n:
-                    is_well_formed = False
-            if balance == 0 and is_well_formed:
-                answer.append(prnths)
+        # answer: list[str] = []
+        # for prnths in parentheses:
+        #     is_well_formed = True
+        #     balance = 0
+        #     for p in prnths:
+        #         balance += 1 if p == '(' else -1
+        #         if balance < 0 or balance > n:
+        #             is_well_formed = False
+        #     if balance == 0 and is_well_formed:
+        #         answer.append(prnths)
 
+        # 풀이 2
+        # 1. 올바른 괄호는 왼쪽과 오른쪽의 갯수가 같으면서 둘의 합이 2n인 경우다.
+        # 2. 왼쪽 괄호가 오른쪽보다 많으면 오른쪽 괄호를 추가한다.
+        # 3. 오른쪽 괄호가 왼쪽보다 많으면 왼쪽 괄호를 추가한다.
+        # 4. 올바른 괄호가 되면 종료한다.
+        answer: list[str] = []
+        def generate(left_count, right_count, buffer):
+            print(buffer, left_count, right_count)
+            if left_count == right_count and left_count + right_count == 2 * n:
+                answer.append(buffer)
+                return
+
+            if left_count < n:
+                generate(left_count + 1, right_count, buffer + '(')
+            if right_count < left_count:
+                generate(left_count, right_count + 1, buffer + ')')
+
+        generate(0, 0, '')
         return answer
