@@ -46,6 +46,7 @@
 ## Dynamic Programming
 |  |
 | ------- |
+| [0022-generate-parentheses](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0022-generate-parentheses) |
 | [0055-jump-game](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0055-jump-game) |
 | [0064-minimum-path-sum](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0064-minimum-path-sum) |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0121-best-time-to-buy-and-sell-stock) |
@@ -63,6 +64,7 @@
 |  |
 | ------- |
 | [0012-integer-to-roman](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0012-integer-to-roman) |
+| [0022-generate-parentheses](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0022-generate-parentheses) |
 ## Matrix
 |  |
 | ------- |
@@ -70,6 +72,7 @@
 ## Backtracking
 |  |
 | ------- |
+| [0022-generate-parentheses](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0022-generate-parentheses) |
 | [0046-permutations](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0046-permutations) |
 ## Tree
 |  |
