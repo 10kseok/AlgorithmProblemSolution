@@ -5,6 +5,7 @@
 ## Array
 |  |
 | ------- |
+| [0045-jump-game-ii](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0045-jump-game-ii) |
 | [0046-permutations](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0046-permutations) |
 | [0055-jump-game](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0055-jump-game) |
 | [0064-minimum-path-sum](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0064-minimum-path-sum) |
@@ -47,6 +48,7 @@
 |  |
 | ------- |
 | [0022-generate-parentheses](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0022-generate-parentheses) |
+| [0045-jump-game-ii](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0045-jump-game-ii) |
 | [0055-jump-game](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0055-jump-game) |
 | [0064-minimum-path-sum](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0064-minimum-path-sum) |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0121-best-time-to-buy-and-sell-stock) |
@@ -54,6 +56,7 @@
 ## Greedy
 |  |
 | ------- |
+| [0045-jump-game-ii](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0045-jump-game-ii) |
 | [0055-jump-game](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0055-jump-game) |
 | [0122-best-time-to-buy-and-sell-stock-ii](https://github.com/10kseok/AlgorithmProblemSolution/tree/master/0122-best-time-to-buy-and-sell-stock-ii) |
 ## Linked List
