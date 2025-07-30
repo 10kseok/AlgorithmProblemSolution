@@ -43,14 +43,36 @@ class Solution:
         # 1. 각 인덱스별로 도착할 수 있는 최소 점프 횟수를 저장한다.
         # 2. 점프 횟수 범위 내에서 현재 점프 인덱스에서의 최소 점프 횟수 + 1과 지금 점프 횟수를 비교한다.
         # 3. 최소 점프 횟수만을 남긴다.
+        # n = len(nums)
+        # min_jumps = [float('inf')] * n
+        # min_jumps[0] = 0
+
+        # for i in range(n):
+        #     edge = min(i + 1 + nums[i], n)
+        #     for j in range(i + 1, edge):
+        #         min_jumps[j] = min(min_jumps[j], min_jumps[i] + 1)
+
+        # return min_jumps[n - 1]
+
+        # 풀이 3 올바른 그리디 
+        # 1. 현재 점프 가능한 곳에서 그 다음 가장 멀리까지 점프할 수 있는 위치를 찾는다.
+        # 2. 해당 위치로 점프한다.
+        # 3. 해당 위치가 n보다 크거나 같으면 점프를 종료한다. 
+        jump = 0
+        cur_end = 0
+        farthest = 0
         n = len(nums)
-        min_jumps = [float('inf')] * n
-        min_jumps[0] = 0
 
-        for i in range(n):
-            edge = min(i + 1 + nums[i], n)
-            for j in range(i + 1, edge):
-                min_jumps[j] = min(min_jumps[j], min_jumps[i] + 1)
+        if n == 1:
+            return 0
 
-        return min_jumps[n - 1]
+        for i in range(n - 1):
+            farthest = max(farthest, i + nums[i])
+            if i == cur_end:
+                cur_end = farthest
+                jump += 1
+                if cur_end >= n - 1:
+                    break
+        return jump
+
 
