@@ -20,29 +20,52 @@ class Solution:
         #  2-1. 탐색 끝 < 기준 시작이면 탐색 간격 배열에 추가
         #  2-2. 기준 끝 < 탐색 시작이면 기준 간격 먼저 배열에 추가 후 탐색 간격 추가
         #  2-3. 기준 간격 배열 추가 후 제거하여 중복 추가 방지
-        standard_interval = newInterval[:]
-        result = []
-        START, END = 0, 1
-        for (start, end) in intervals:
-            if not standard_interval: # 이미 기준 간격을 추가한 경우
-                result.append([start, end])
-                continue
+        # standard_interval = newInterval[:]
+        # result = []
+        # START, END = 0, 1
+        # for (start, end) in intervals:
+        #     if not standard_interval: # 이미 기준 간격을 추가한 경우
+        #         result.append([start, end])
+        #         continue
             
-            # 겹치는 경우
-            if start <= standard_interval[END] and standard_interval[START] <= end:
-                standard_interval[START] = min(start, standard_interval[START])
-                standard_interval[END] = max(end, standard_interval[END])
-            # 겹치지 않는 경우
-            elif end < standard_interval[START]:
-                result.append([start, end])
-            elif standard_interval[END] < start:
-                result.append(standard_interval)
-                result.append([start, end])
-                standard_interval = None
+        #     # 겹치는 경우
+        #     if start <= standard_interval[END] and standard_interval[START] <= end:
+        #         standard_interval[START] = min(start, standard_interval[START])
+        #         standard_interval[END] = max(end, standard_interval[END])
+        #     # 겹치지 않는 경우
+        #     elif end < standard_interval[START]:
+        #         result.append([start, end])
+        #     elif standard_interval[END] < start:
+        #         result.append(standard_interval)
+        #         result.append([start, end])
+        #         standard_interval = None
 
-        if standard_interval:
-            # 모두 기준 간격으로 연결된 경우
-            result.append(standard_interval)
+        # if standard_interval:
+        #     # 모두 기준 간격으로 연결된 경우
+        #     result.append(standard_interval)
+
+        # return result
+
+        # 풀이 2
+        # 1. 기준 간격 앞에 있는 간격들을 모두 추가한다
+        # 2. 기준 간격과 겹치는 간격들로부터 기준 간격의 길이를 늘리고 추가한다
+        # 3. 나머지 기준 간격 뒤에 있는 간격들을 추가한다
+        # intervals: List[List[int]], newInterval: List[int]
+        result = []
+
+        i = 0
+        n = len(intervals)
+
+        while i < n and intervals[i][1] < newInterval[0]:
+            result.append(intervals[i])
+            i += 1
+
+        while i < n and intervals[i][0] <= newInterval[1] and newInterval[0] <= intervals[i][1]:
+            newInterval = [min(intervals[i][0], newInterval[0]), max(intervals[i][1], newInterval[1])]
+            i += 1
+
+        result.append(newInterval)
+        result.extend(intervals[i:])
 
         return result
         
